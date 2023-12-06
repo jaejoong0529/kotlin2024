@@ -30,5 +30,5 @@ kotlin {
 }
 
 application {
-  mainClass.set("MainKt")
+  mainClass.set("kr.mjc.jacob.basics.HelloWorldKt")
 }
