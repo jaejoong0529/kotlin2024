@@ -1,7 +1,7 @@
 package kr.mjc.rachel.basics.jdbc;
 
-import kr.mjc.rachel.basics.jdbc.article.ArticleDao;
-import kr.mjc.rachel.basics.jdbc.article.ArticleDaoUsingJdbcHelper;
+import kr.mjc.rachel.basics.jdbc.post.PostDao;
+import kr.mjc.rachel.basics.jdbc.post.PostDaoUsingJdbcHelper;
 import kr.mjc.rachel.basics.jdbc.user.dao.UserDao;
 import kr.mjc.rachel.basics.jdbc.user.dao.UserDaoUsingJdbcHelper;
 
@@ -11,7 +11,7 @@ public class DaoFactory {
     return new UserDaoUsingJdbcHelper();
   }
 
-  public static ArticleDao getArticleDao() {
-    return new ArticleDaoUsingJdbcHelper();
+  public static PostDao getPostDao() {
+    return new PostDaoUsingJdbcHelper();
   }
 }

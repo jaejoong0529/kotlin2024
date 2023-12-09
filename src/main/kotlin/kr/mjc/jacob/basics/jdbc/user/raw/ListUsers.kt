@@ -1,7 +1,7 @@
 package kr.mjc.jacob.basics.jdbc.user.raw
 
 import kr.mjc.jacob.basics.jdbc.Web2DataSource
-import kr.mjc.jacob.basics.jdbc.user.Limit
+import kr.mjc.jacob.basics.jdbc.Limit
 import kr.mjc.jacob.basics.jdbc.user.User
 import java.util.*
 

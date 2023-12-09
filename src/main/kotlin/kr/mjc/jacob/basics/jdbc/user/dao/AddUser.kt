@@ -13,6 +13,6 @@ fun main() {
     }
   }
 
-  UserDao.addUser(user)
+  UserDaoImpl.addUser(user)
   println(user)
 }

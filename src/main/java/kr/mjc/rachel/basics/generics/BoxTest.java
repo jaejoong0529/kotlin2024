@@ -1,60 +1,41 @@
 package kr.mjc.rachel.basics.generics;
 
 /**
- * IntegerBox와 StringBox 테스트
+ * @see <a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">https://docs.oracle.com/javase/tutorial/java/generics/types.html</a>
  */
+record Box(Object value) {
+}
+
+record IntegerBox(int value) {
+}
+
+record StringBox(String value) {
+}
+
+record GenericBox<T>(T value) {
+}
+
 public class BoxTest {
-
   public static void main(String[] args) {
-    BoxTest boxTest = new BoxTest();
-    boxTest.useBox();
-    boxTest.useTypedBox();
-    boxTest.useGenericBox();
-  }
+    Box b1 = new Box(5);
+    // int i = b1.value(); -> error
+    int i1 = (int) b1.value(); // type casting
 
-  /**
-   * Box 사용 예
-   */
-  public void useBox() {
-    Box box1 = new Box();
-    box1.set(5);
-    int i = (Integer) box1.get();
+    Box b2 = new Box("abc");
+    // String s = b2.value(); -> error
+    String s1 = (String) b2.value(); // type casting
 
-    box1.set("abc");
-    String s = (String) box1.get();
+    IntegerBox b3 = new IntegerBox(5);
+    int i2 = b3.value();
 
-    // compile ok, run failure
-    int x = (Integer) box1.get();
-  }
+    StringBox b4 = new StringBox("abc");
+    String s2 = b4.value();
 
-  /**
-   * StringBox와 IntegerBox 사용 예
-   */
-  public void useTypedBox() {
-    StringBox stringBox = new StringBox();
-    stringBox.set("abc");
-    String s = stringBox.get();
+    // Generic
+    GenericBox<Integer> b5 = new GenericBox<>(5);
+    int i3 = b5.value();
 
-    IntegerBox integerBox = new IntegerBox();
-    integerBox.set(5);
-    int i = integerBox.get();
-  }
-
-  /**
-   * GenericBox 사용 예
-   */
-  public void useGenericBox() {
-    GenericBox<Integer> integerBox =
-        new GenericBox<>(); // Diamond: Type inference
-    integerBox.set(5);
-    int i = integerBox.get();
-
-    GenericBox<String> stringBox = new GenericBox<>();
-    stringBox.set("abc");
-    String s = stringBox.get();
-
-    // compile error
-    // integerBox.set("abc");
-    // stringBox.set(5);
+    GenericBox<String> b6 = new GenericBox<>("abc");
+    String s3 = b6.value();
   }
 }

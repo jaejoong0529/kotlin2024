@@ -1,17 +1,14 @@
 package kr.mjc.rachel.spring.jdbc.user;
 
 import kr.mjc.rachel.basics.jdbc.user.dao.UserDao;
-import kr.mjc.rachel.spring.jdbc.AppConfig;
+import kr.mjc.rachel.spring.jdbc.AppTest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @Slf4j
 public class ListUsers {
   public static void main(String[] args) {
-    ApplicationContext applicationContext =
-        new AnnotationConfigApplicationContext(AppConfig.class);
-    UserDao userDao = applicationContext.getBean(UserDao.class);
-    log.info(userDao.listUsers(5, 1).toString());
+    new AppTest().test(UserDao.class, (userDao, log) -> {
+      log.info(userDao.listUsers(5, 1).toString());
+    });
   }
 }

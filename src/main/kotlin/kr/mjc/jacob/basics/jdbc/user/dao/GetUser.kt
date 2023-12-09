@@ -6,6 +6,6 @@ fun main() {
   print("Get - userId ? ")
   val userId = Scanner(System.`in`).use { it.nextInt() }
 
-  val user = UserDao.getUser(userId)
+  val user = UserDaoImpl.getUser(userId)
   println(user)
 }

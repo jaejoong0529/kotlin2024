@@ -1,6 +1,6 @@
 package kr.mjc.jacob.basics.jdbc.user.dao
 
-import kr.mjc.jacob.basics.jdbc.user.Limit
+import kr.mjc.jacob.basics.jdbc.Limit
 import java.util.*
 
 fun main() {
@@ -12,6 +12,6 @@ fun main() {
     }
   }
 
-  val userList = UserDao.listUsers(limit)
+  val userList = UserDaoImpl.listUsers(limit)
   println(userList)
 }

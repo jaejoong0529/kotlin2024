@@ -1,9 +1,20 @@
 package kr.mjc.jacob.basics.generics
 
+/**
+ * @see <a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">https://docs.oracle.com/javase/tutorial/java/generics/types.html</a>
+ */
+data class Box(val value: Any)
+
+data class IntegerBox(val value: Int)
+
+data class StringBox(val value: String)
+
+data class GenericBox<T>(val value: T)
+
 fun main() {
   val b1 = Box(5)
   // println(b1.value + 2) -> error
-  println((b1.value as Int) + 2) // type castring
+  println((b1.value as Int) + 2) // type casting
 
   val b2 = Box("abc")
   // println(b2.value.length) -> error
@@ -15,9 +26,10 @@ fun main() {
   val b4 = StringBox("abc")
   println(b4.value.length)
 
-  val gb1 = GenericBox(5) // type inference
-  println(gb1.value + 2)
+  // Generic
+  val b5 = GenericBox(5) // type inference
+  println(b5.value + 2)
 
-  val gb2 = GenericBox("abc") // type inference
-  println(gb2.value.length)
+  val b6 = GenericBox("abc") // type inference
+  println(b6.value.length)
 }
