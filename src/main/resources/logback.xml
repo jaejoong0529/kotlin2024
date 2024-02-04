@@ -12,5 +12,5 @@
 
   <logger name="kr.mjc.jacob" level="debug"/>
   <logger name="kr.mjc.rachel" level="debug"/>
-  <logger name="org.mariadb.jdbc.client.impl.StandardClient" level="debug"/>1
+  <logger name="org.mariadb.jdbc.client.impl.StandardClient" level="debug"/>
 </configuration>
