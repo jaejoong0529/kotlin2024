@@ -1,6 +1,6 @@
 package kr.mjc.jacob.basics.jdbc.user.raw
 
-import kr.mjc.jacob.basics.jdbc.Web2DataSource
+import kr.mjc.jacob.basics.jdbc.PostDbDataSource
 import kr.mjc.jacob.basics.jdbc.Limit
 import kr.mjc.jacob.basics.jdbc.user.User
 import java.util.*
@@ -14,7 +14,7 @@ fun main() {
     }
   }
 
-  Web2DataSource.connection.use { conn ->
+  PostDbDataSource.connection.use { conn ->
     conn.prepareStatement("select userId, email, name from user order by userId desc limit ?,?")
       .use { ps ->
         ps.setInt(1, limit.offset)

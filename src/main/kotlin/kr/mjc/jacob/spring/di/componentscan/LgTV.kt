@@ -25,10 +25,10 @@ class LgTV : TV {
   }
 
   override fun volumeUp() {
-    speaker?.volumeUp()
+    speaker.volumeUp()
   }
 
   override fun volumeDown() {
-    speaker?.volumeDown()
+    speaker.volumeDown()
   }
 }

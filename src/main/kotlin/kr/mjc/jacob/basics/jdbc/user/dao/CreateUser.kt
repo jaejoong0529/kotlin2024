@@ -13,6 +13,7 @@ fun main() {
     }
   }
 
-  UserDaoImpl.addUser(user)
+  user.password = user.passwordHashed
+  UserDaoImpl().createUser(user)
   println(user)
 }

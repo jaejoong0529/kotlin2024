@@ -17,7 +17,7 @@ fun main() {
       }
     }
     try {
-      userDao.addUser(user)
+      userDao.createUser(user)
       log.debug(user.toString())
     } catch (_: DataAccessException) {
     }

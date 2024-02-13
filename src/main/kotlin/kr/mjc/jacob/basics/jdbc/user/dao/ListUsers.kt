@@ -12,6 +12,6 @@ fun main() {
     }
   }
 
-  val userList = UserDaoImpl.listUsers(limit)
+  val userList = UserDaoImpl().listUsers(limit)
   println(userList)
 }

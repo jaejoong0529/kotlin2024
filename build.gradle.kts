@@ -15,10 +15,13 @@ dependencies {
   implementation("org.mariadb.jdbc:mariadb-java-client:+")
   implementation("org.springframework:spring-context:+")
   implementation("org.springframework:spring-jdbc:+")
-
-  compileOnly("org.projectlombok:lombok:+")
-  annotationProcessor("org.projectlombok:lombok:+")
   testImplementation(kotlin("test"))
+
+  // bcrypt
+  implementation("de.svenkubiak:jBCrypt:+")
+
+  // reflect
+  implementation("org.jetbrains.kotlin:kotlin-reflect")
 }
 
 tasks.test {

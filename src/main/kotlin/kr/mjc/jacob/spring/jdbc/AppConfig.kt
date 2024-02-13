@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
 import org.springframework.core.env.Environment
-import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import javax.sql.DataSource
 
@@ -21,9 +20,6 @@ open class AppConfig {
   open fun dataSource() = MariaDbDataSource(env.getProperty("url"))
 
   @Bean
-  open fun jdbcTemplate(dataSource: DataSource) = JdbcTemplate(dataSource)
-
-  @Bean
-  open fun nameParameterJdbcTemplate(jdbcTemplate: JdbcTemplate) =
-    NamedParameterJdbcTemplate(jdbcTemplate)
+  open fun nameParameterJdbcTemplate(dataSource: DataSource) =
+    NamedParameterJdbcTemplate(dataSource)
 }

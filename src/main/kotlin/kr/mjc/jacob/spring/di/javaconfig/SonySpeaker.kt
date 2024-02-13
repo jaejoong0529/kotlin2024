@@ -2,7 +2,7 @@ package kr.mjc.jacob.spring.di.javaconfig
 
 import org.slf4j.LoggerFactory
 
-class SonySpeaker:Speaker {
+class SonySpeaker : Speaker {
 
   private val log = LoggerFactory.getLogger(this.javaClass)
 

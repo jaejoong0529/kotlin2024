@@ -8,5 +8,11 @@ interface UserDao {
 
   fun getUser(userId: Int): User?
 
-  fun addUser(user: User)
+  fun getUserWithEmail(email: String): User?
+
+  fun createUser(user: User)
+
+  fun changePassword(userId: Int, password: String)
+
+  fun deleteUser(userId: Int)
 }
