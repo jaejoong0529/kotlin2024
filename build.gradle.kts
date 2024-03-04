@@ -11,17 +11,22 @@ repositories {
 }
 
 dependencies {
-  implementation("ch.qos.logback:logback-classic:+")
-  implementation("org.mariadb.jdbc:mariadb-java-client:+")
-  implementation("org.springframework:spring-context:+")
-  implementation("org.springframework:spring-jdbc:+")
+  // spring
+  implementation("org.springframework:spring-context:6.+")
+  implementation("org.springframework:spring-jdbc:6.+")
+  implementation("org.springframework.data:spring-data-jdbc:3.+")
+
+  // kotlin
+  implementation("org.jetbrains.kotlin:kotlin-reflect")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
   testImplementation(kotlin("test"))
 
-  // bcrypt
+  // others
+  implementation("ch.qos.logback:logback-classic:+")
+  implementation("org.mariadb.jdbc:mariadb-java-client:+")
   implementation("de.svenkubiak:jBCrypt:+")
+  implementation("com.fasterxml.jackson.core:jackson-databind:+")
 
-  // reflect
-  implementation("org.jetbrains.kotlin:kotlin-reflect")
 }
 
 tasks.test {
@@ -35,3 +40,4 @@ kotlin {
 application {
   mainClass.set("kr.mjc.jacob.basics.HelloWorldKt")
 }
+

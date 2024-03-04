@@ -1,4 +1,5 @@
 .*
 !.gitignore
 build
-db.properties
+application.properties
+src/test
