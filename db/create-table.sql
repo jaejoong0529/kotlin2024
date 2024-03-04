@@ -5,7 +5,7 @@ CREATE TABLE user (
   first_name    varchar(20)  NOT NULL,
   date_joined   datetime NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (userId),
-  UNIQUE KEY email (email)
+  UNIQUE KEY username (username)
 );
 
 CREATE TABLE post (
