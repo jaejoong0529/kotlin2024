@@ -4,7 +4,7 @@ CREATE TABLE user (
   password      char(60)     NOT NULL,
   first_name    varchar(20)  NOT NULL,
   date_joined   datetime NOT NULL DEFAULT current_timestamp,
-  PRIMARY KEY (userId),
+  PRIMARY KEY (id),
   UNIQUE KEY username (username)
 );
 
