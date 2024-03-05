@@ -19,7 +19,7 @@ fun main() {
   }
   println()
 
-  for (x in 9 downTo 0 step 3) { // 9 6 3
+  for (x in 9 downTo 0 step 3) { // 9 6 3 0
     print(x)
   }
 }

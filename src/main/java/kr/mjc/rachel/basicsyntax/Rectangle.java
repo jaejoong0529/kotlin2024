@@ -1,9 +1,9 @@
-package kr.mjc.rachel.basics;
+package kr.mjc.rachel.basicsyntax;
 
 public class Rectangle extends Shape {
-  private double height;
-  private double length;
-  private double perimeter;
+  private final double height;
+  private final double length;
+  private final double perimeter;
 
   public Rectangle(double height, double length) {
     this.height = height;
@@ -12,7 +12,15 @@ public class Rectangle extends Shape {
     System.out.println("a rectangle instance is created.");
   }
 
-  public double getPerimeter() {
+  public double getHeight() { // property height
+    return height;
+  }
+
+  public double getLength() { // property length
+    return length;
+  }
+
+  public double getPerimeter() {  // property perimeter
     return perimeter;
   }
 

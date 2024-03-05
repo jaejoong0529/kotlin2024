@@ -1,6 +1,6 @@
 package kr.mjc.jacob.jdbc.user.raw
 
-import kr.mjc.jacob.jdbc.Postdb
+import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import java.util.*
 
@@ -11,13 +11,17 @@ fun main() {
       firstName = scanner.next()).hashPassword()
   scanner.close()
   val sql = "insert user(username, password, first_name) values(?, ?, ?)"
-  Postdb.connection.use { conn ->
-    conn.prepareStatement(sql).use { ps ->
-      ps.setString(1, user.username)
-      ps.setString(2, user.password)
-      ps.setString(3, user.firstName)
-      ps.executeUpdate()
-      println("저장 완료")
+  try {
+    PostdbDataSource.connection.use { conn ->
+      conn.prepareStatement(sql).use { ps ->
+        ps.setString(1, user.username)
+        ps.setString(2, user.password)
+        ps.setString(3, user.firstName)
+        ps.executeUpdate()
+        println("저장 완료")
+      }
     }
+  } catch (e: Exception) {
+    println(e.message)
   }
 }

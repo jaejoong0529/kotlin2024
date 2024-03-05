@@ -1,6 +1,6 @@
 package kr.mjc.jacob.jdbc.user.raw
 
-import kr.mjc.jacob.jdbc.Postdb
+import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import java.util.*
 
@@ -10,7 +10,7 @@ fun main() {
   val sql =
     "select id, username, password, first_name, date_joined from user where id=?"
 
-  Postdb.connection.use { conn ->
+  PostdbDataSource.connection.use { conn ->
     conn.prepareStatement(sql).use { ps ->
       ps.setInt(1, id)
       ps.executeQuery().use { rs ->
@@ -20,6 +20,8 @@ fun main() {
               firstName = rs.getString("first_name"),
               dateJoined = rs.getTimestamp("date_joined")
                 .toLocalDateTime()).let { println(it) }
+        } else {
+          println("사용자 없음")
         }
       }
     }

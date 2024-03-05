@@ -1,4 +1,4 @@
-package kr.mjc.rachel.basics;
+package kr.mjc.rachel.basicsyntax;
 
 import java.util.List;
 

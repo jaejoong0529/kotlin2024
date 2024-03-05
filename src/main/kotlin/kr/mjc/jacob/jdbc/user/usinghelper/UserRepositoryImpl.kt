@@ -2,7 +2,7 @@ package kr.mjc.jacob.jdbc.user.usinghelper
 
 import kr.mjc.jacob.jdbc.JdbcHelper
 import kr.mjc.jacob.jdbc.Page
-import kr.mjc.jacob.jdbc.Postdb
+import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import java.sql.ResultSet
 
@@ -24,7 +24,7 @@ class UserRepositoryImpl : UserRepository {
 
   private val DELETE_BY_ID = "delete from user where id=?"
 
-  private val jdbcHelper = JdbcHelper(Postdb)
+  private val jdbcHelper = JdbcHelper(PostdbDataSource)
 
   private fun mapUser(rs: ResultSet): User =
     User(id = rs.getInt("id"), username = rs.getString("username"),

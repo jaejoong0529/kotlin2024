@@ -1,6 +1,6 @@
 package kr.mjc.jacob.jdbc.user.raw
 
-import kr.mjc.jacob.jdbc.Postdb
+import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import java.sql.Connection
 import java.sql.PreparedStatement
@@ -14,7 +14,7 @@ fun main() {
     "select id, username, password, first_name, date_joined from user where id=?"
 
   // 1. dataSource에서 connection 가져오기
-  val conn: Connection = Postdb.connection
+  val conn: Connection = PostdbDataSource.connection
 
   // 2. connection에서 preparedStatment 만들기
   val ps: PreparedStatement = conn.prepareStatement(sql)
@@ -28,6 +28,8 @@ fun main() {
         firstName = rs.getString("first_name"),
         dateJoined = rs.getTimestamp("date_joined")
           .toLocalDateTime()).let { println(it) }
+  } else {
+    println("사용자 없음")
   }
 
   // close resultSet

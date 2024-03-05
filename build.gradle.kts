@@ -21,12 +21,18 @@ dependencies {
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
   testImplementation(kotlin("test"))
 
+  // apache
+  implementation("org.apache.httpcomponents.client5:httpclient5:5.3")
+  implementation("org.apache.httpcomponents.client5:httpclient5-fluent:5.3")
+  implementation("commons-io:commons-io:2.+")
+
   // others
   implementation("ch.qos.logback:logback-classic:+")
   implementation("org.mariadb.jdbc:mariadb-java-client:+")
   implementation("de.svenkubiak:jBCrypt:+")
   implementation("com.fasterxml.jackson.core:jackson-databind:+")
-
+  implementation("com.google.code.gson:gson:+")
+  implementation("org.json:json:+")
 }
 
 tasks.test {

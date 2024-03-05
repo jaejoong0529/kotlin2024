@@ -1,7 +1,7 @@
 package kr.mjc.jacob.jdbc.user.raw
 
 import kr.mjc.jacob.jdbc.Page
-import kr.mjc.jacob.jdbc.Postdb
+import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import java.util.*
 
@@ -13,7 +13,7 @@ fun main() {
 
   val sql =
     "select id, username, first_name, date_joined from user order by id desc limit ?,?"
-  Postdb.connection.use { conn ->
+  PostdbDataSource.connection.use { conn ->
     conn.prepareStatement(sql).use { ps ->
       ps.setInt(1, page.offset)
       ps.setInt(2, page.size)

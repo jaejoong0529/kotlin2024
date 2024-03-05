@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Repository
 
 @Repository
-class UserRepositoryImpl(private val nt: NamedParameterJdbcTemplate) :
+class UserRepositoryImpl(private val template: NamedParameterJdbcTemplate) :
     UserRepository {
 
   private val FIND_ALL =
@@ -32,23 +32,23 @@ class UserRepositoryImpl(private val nt: NamedParameterJdbcTemplate) :
   private val userRowMapper = BeanPropertyRowMapper(User::class.java)
 
   override fun findAll(page: Page): List<User> =
-    nt.query(FIND_ALL, page.map, userRowMapper)
+    template.query(FIND_ALL, page.map, userRowMapper)
 
   override fun findById(id: Int): User? =
-    nt.queryForObject(FIND_BY_ID, mapOf("id" to id), userRowMapper)
+    template.queryForObject(FIND_BY_ID, mapOf("id" to id), userRowMapper)
 
   override fun findByUsername(username: String): User? =
-    nt.queryForObject(FIND_BY_USERNAME, mapOf("username" to username),
+    template.queryForObject(FIND_BY_USERNAME, mapOf("username" to username),
         userRowMapper)
 
   override fun save(user: User): User? =
-    nt.queryForObject(SAVE, user.map, userRowMapper)
+    template.queryForObject(SAVE, user.map, userRowMapper)
 
   override fun changePassword(id: Int, password: String) {
-    nt.update(CHANGE_PASSWORD, mapOf("id" to id, "password" to password))
+    template.update(CHANGE_PASSWORD, mapOf("id" to id, "password" to password))
   }
 
   override fun deleteById(id: Int) {
-    nt.update(DELETE_BY_ID, mapOf("id" to id))
+    template.update(DELETE_BY_ID, mapOf("id" to id))
   }
 }

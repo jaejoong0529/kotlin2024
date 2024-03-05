@@ -3,7 +3,7 @@ package kr.mjc.jacob.jdbc
 import org.mariadb.jdbc.MariaDbDataSource
 import java.util.*
 
-object Postdb : MariaDbDataSource() {
+object PostdbDataSource : MariaDbDataSource() {
 
   init {
     val props = Properties()
