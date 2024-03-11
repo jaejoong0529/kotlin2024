@@ -37,8 +37,8 @@ fun main() {
   val c = Customer("Rachel")
   println(c.customerKey)
 
-  var pc = Personc("Timothee", "Chalamet", 29)
-  pc = Personc("Timothee", "Chalamet")  // age = 1 : 기본값
-  pc.age = 29
-  pc = Personc(lastName = "Chalamet", firstName = "Timothee")  // named args
+  val pc1 = Personc("Timothee", "Chalamet", 29)
+  val pc2 = Personc("Timothee", "Chalamet")  // age = 1 : 기본값
+  pc2.age = 29
+  val pc3 = Personc(lastName = "Chalamet", firstName = "Timothee") // named args
 }

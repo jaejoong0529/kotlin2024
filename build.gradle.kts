@@ -33,6 +33,8 @@ dependencies {
   implementation("com.fasterxml.jackson.core:jackson-databind:+")
   implementation("com.google.code.gson:gson:+")
   implementation("org.json:json:+")
+  compileOnly("org.projectlombok:lombok:1.18.30")
+  annotationProcessor("org.projectlombok:lombok:1.18.30")
 }
 
 tasks.test {

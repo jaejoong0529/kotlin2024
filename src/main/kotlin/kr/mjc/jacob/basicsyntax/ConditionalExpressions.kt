@@ -4,10 +4,10 @@
 package kr.mjc.jacob.basicsyntax
 
 fun maxOf(a: Int, b: Int): Int {
-  if (a > b) {
-    return a
+  return if (a > b) {
+    a
   } else {
-    return b
+    b
   }
 }
 

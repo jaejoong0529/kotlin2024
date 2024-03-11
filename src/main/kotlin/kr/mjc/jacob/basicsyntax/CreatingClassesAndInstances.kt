@@ -6,7 +6,7 @@ package kr.mjc.jacob.basicsyntax
 open class Shape
 
 class Rectangle(val height: Double, val length: Double) : Shape() {
-  val perimeter = (height + length) * 2
+  val perimeter = (height + length) * 2 // property initializer
 }
 
 fun main() {

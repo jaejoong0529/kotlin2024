@@ -30,11 +30,12 @@ class Rectangleb : Shapeb() {
 
 /* 파생 클래스 초기화 순서. 부모클래스부터 초기화 됨 */
 open class Baseb(val name: String) {
-  init {  // initializer block
+  init {  // initializer block 은 primary constructor의 일부
     println("Initializing a base class")
   }
 
-  open val size: Int = name.length  // property initializer
+  // property initializer 는 primary constructor의 일부
+  open val size: Int = name.length
 }
 
 class Derivedb(name: String, val lastName: String) : Baseb(name) {

@@ -20,12 +20,10 @@ class Rectanglec(val width: Int, val height: Int) {
 class Circle(var x: Int = 0, var y: Int = 0) {
   var radius: Int = 1   // property initializer
     set(value) {        // 사용자 지정 setter
-      field = if (value >= 0) value else throw Exception("반지름이 0 미만")
+      field = if (value >= 0) value else throw RuntimeException("반지름이 0 미만")
     } // `field`를 backing field라 한다.
 
-  override fun toString(): String {
-    return "Circle(x=$x, y=$y, radius=$radius)"
-  }
+  override fun toString() = "Circle(x=$x, y=$y, radius=$radius)"
 }
 
 fun main() {
