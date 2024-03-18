@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/basic-syntax.html#functions
  */
 package kr.mjc.jacob.basicsyntax

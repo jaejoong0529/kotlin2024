@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.function.Function;
 
 public class FunctionExample {
-  public <T, R> List<R> transform(List<T> list, Function<T, R> func) {
+  /**
+   * list의 요소에 function.apply(t)를 실행해서 새로운 리스트를 만든다.
+   */
+  public <T, R> List<R> transform(List<T> list, Function<T, R> function) {
     List<R> result = new ArrayList<>();
-    for (T e : list) result.add(func.apply(e));
+    for (T t : list) result.add(function.apply(t));
     return result;
   }
 

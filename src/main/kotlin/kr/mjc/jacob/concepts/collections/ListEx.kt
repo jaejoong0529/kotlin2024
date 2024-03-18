@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/collections-overview.html#list
  */
 package kr.mjc.jacob.concepts.collections
@@ -11,7 +11,6 @@ fun main() {
   val numbers1 = listOf("one", "two", "three", "four")
   println(numbers1)
   println("Number of elements: ${numbers1.size}")
-  println("Third element: ${numbers1.get(2)}")
   println("Fourth element: ${numbers1[3]}")
 
   // 내용물 변경이 가능한 list

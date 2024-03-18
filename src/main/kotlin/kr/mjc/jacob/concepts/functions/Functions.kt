@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/functions.html
  */
 package kr.mjc.jacob.concepts.functions

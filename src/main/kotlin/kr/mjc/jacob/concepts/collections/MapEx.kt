@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/collections-overview.html#map
  */
 package kr.mjc.jacob.concepts.collections
@@ -16,8 +16,7 @@ fun main() {
 
   // 내용물 변경이 가능한 map
   val numbersMap2 = mutableMapOf("one" to 1, "two" to 2) // {one=1, two=2}
-  numbersMap2.put("three", 3) // {one=1, two=2, three=3}
-  numbersMap2["four"] = 4     // {one=1, two=2, three=3, four=4}
-  numbersMap2["one"] = 11     // {one=11, two=2, three=3, four=4}
+  numbersMap2["three"] = 3 // {one=1, two=2, three=3}
+  numbersMap2["one"] = 11     // {one=11, two=2, three=3}
   println(numbersMap2)
 }

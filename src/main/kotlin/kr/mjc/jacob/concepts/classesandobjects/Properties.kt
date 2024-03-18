@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/properties.html
  */
 package kr.mjc.jacob.concepts.classesandobjects

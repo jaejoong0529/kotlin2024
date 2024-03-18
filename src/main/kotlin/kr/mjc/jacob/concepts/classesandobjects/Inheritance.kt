@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/inheritance.html
  */
 package kr.mjc.jacob.concepts.classesandobjects

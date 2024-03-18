@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/data-classes.html
  */
 package kr.mjc.jacob.concepts.classesandobjects

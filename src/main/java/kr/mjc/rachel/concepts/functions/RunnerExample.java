@@ -5,6 +5,9 @@
 package kr.mjc.rachel.concepts.functions;
 
 public class RunnerExample {
+  /**
+   * runnable.run()을 n번 반복한다.
+   */
   public void repeat(int n, Runnable runnable) {
     for (int i = 0; i < n; i++)
       runnable.run();
