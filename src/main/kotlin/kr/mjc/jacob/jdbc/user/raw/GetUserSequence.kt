@@ -23,11 +23,11 @@ fun main() {
   // 3. preparedStatement를 실행해서 resultSet 리턴
   val rs: ResultSet = ps.executeQuery()
   if (rs.next()) {
-    User(id = rs.getInt("id"), username = rs.getString("username"),
+    val user = User(id = rs.getInt("id"), username = rs.getString("username"),
         password = rs.getString("password"),
         firstName = rs.getString("first_name"),
-        dateJoined = rs.getTimestamp("date_joined")
-          .toLocalDateTime()).let { println(it) }
+        dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
+    println(user)
   } else {
     println("사용자 없음")
   }

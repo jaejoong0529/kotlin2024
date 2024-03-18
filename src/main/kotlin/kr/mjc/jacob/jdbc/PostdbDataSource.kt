@@ -3,6 +3,9 @@ package kr.mjc.jacob.jdbc
 import org.mariadb.jdbc.MariaDbDataSource
 import java.util.*
 
+/**
+ * dataSource single instance
+ */
 object PostdbDataSource : MariaDbDataSource() {
 
   init {

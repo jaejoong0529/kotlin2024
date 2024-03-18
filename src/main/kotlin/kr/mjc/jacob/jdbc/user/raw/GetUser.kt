@@ -15,11 +15,12 @@ fun main() {
       ps.setInt(1, id)
       ps.executeQuery().use { rs ->
         if (rs.next()) {
-          User(id = rs.getInt("id"), username = rs.getString("username"),
-              password = rs.getString("password"),
-              firstName = rs.getString("first_name"),
-              dateJoined = rs.getTimestamp("date_joined")
-                .toLocalDateTime()).let { println(it) }
+          val user =
+            User(id = rs.getInt("id"), username = rs.getString("username"),
+                password = rs.getString("password"),
+                firstName = rs.getString("first_name"),
+                dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
+          println(user)
         } else {
           println("사용자 없음")
         }

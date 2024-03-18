@@ -12,24 +12,26 @@ import org.springframework.stereotype.Repository
 class UserRepositoryImpl(private val template: NamedParameterJdbcTemplate) :
     UserRepository {
 
-  private val FIND_ALL =
-    "select id, username, password, first_name, date_joined from user order by id desc limit :offset, :size"
+  companion object {
+    private const val FIND_ALL =
+      "select id, username, password, first_name, date_joined from user order by id desc limit :offset, :size"
 
-  private val FIND_BY_ID =
-    "select id, username, password, first_name, date_joined from user where id=:id"
+    private const val FIND_BY_ID =
+      "select id, username, password, first_name, date_joined from user where id=:id"
 
-  private val FIND_BY_USERNAME =
-    "select id, username, password, first_name, date_joined from user where id=:username"
+    private const val FIND_BY_USERNAME =
+      "select id, username, password, first_name, date_joined from user where id=:username"
 
-  private val SAVE =
-    "insert user(username, password, first_name) values(:username, :password, :firstName) returning *"
+    private const val SAVE =
+      "insert user(username, password, first_name) values(:username, :password, :firstName) returning *"
 
-  private val CHANGE_PASSWORD =
-    "update user set password=:password where id=:id"
+    private const val CHANGE_PASSWORD =
+      "update user set password=:password where id=:id"
 
-  private val DELETE_BY_ID = "delete from user where id=:id"
+    private const val DELETE_BY_ID = "delete from user where id=:id"
 
-  private val userRowMapper = BeanPropertyRowMapper(User::class.java)
+    private val userRowMapper = BeanPropertyRowMapper(User::class.java)
+  }
 
   override fun findAll(page: Page): List<User> =
     template.query(FIND_ALL, page.map, userRowMapper)

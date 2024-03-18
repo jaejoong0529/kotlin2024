@@ -4,7 +4,7 @@
 package kr.mjc.jacob.concepts.classesandobjects
 
 /*
- * 데이터 클래스는 데이터를 보유하는데 사용
+ * 데이터 클래스는 데이터를 보유하는데 사용한다.
  * 기본으로 다음 메서드들을 구현했다.
  * equals(), hashCode(), toString(), copy(), componentN()...
  */

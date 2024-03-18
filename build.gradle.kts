@@ -21,6 +21,13 @@ dependencies {
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
   testImplementation(kotlin("test"))
 
+  // lombok
+  compileOnly("org.projectlombok:lombok:+")
+  annotationProcessor("org.projectlombok:lombok:+")
+
+  // mariadb driver
+  implementation("org.mariadb.jdbc:mariadb-java-client:3.+")
+
   // apache
   implementation("org.apache.httpcomponents.client5:httpclient5:5.3")
   implementation("org.apache.httpcomponents.client5:httpclient5-fluent:5.3")
@@ -28,13 +35,10 @@ dependencies {
 
   // others
   implementation("ch.qos.logback:logback-classic:+")
-  implementation("org.mariadb.jdbc:mariadb-java-client:+")
   implementation("de.svenkubiak:jBCrypt:+")
   implementation("com.fasterxml.jackson.core:jackson-databind:+")
   implementation("com.google.code.gson:gson:+")
   implementation("org.json:json:+")
-  compileOnly("org.projectlombok:lombok:1.18.30")
-  annotationProcessor("org.projectlombok:lombok:1.18.30")
 }
 
 tasks.test {
