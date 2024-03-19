@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/basic-syntax.html#creating-classes-and-instances
  */
 package kr.mjc.jacob.basicsyntax

@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/null-safety.html#elvis-operator
  */
 package kr.mjc.jacob.basicsyntax

@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/basic-syntax.html#ranges
  */
 package kr.mjc.jacob.basicsyntax

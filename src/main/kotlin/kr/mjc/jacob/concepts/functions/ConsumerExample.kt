@@ -1,7 +1,7 @@
 package kr.mjc.jacob.concepts.functions
 
 class ConsumerExample {
-  // higher order function
+  // higher order function : 함수를 인자로 받거나 함수를 리턴하는 함수
   // inline 함수 인스턴스를 만들지 않고 함수의 코드를 삽입한다.
   inline fun <T> repeat(list: List<T>, accept: (T) -> Unit) {
     for (e in list) accept(e)
@@ -22,5 +22,8 @@ fun main() {
 
   exam.repeat(list1, c1)
   exam.repeat(list1) { e -> println(e) }
-  exam.repeat(list1, exam::printString)
+  exam.repeat(list1, exam::printString) // method reference
+
+  list1.forEach { e -> println(e) }
+  list1.forEach(::println)
 }

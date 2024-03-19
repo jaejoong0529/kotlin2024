@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/basic-syntax.html#when-expression
  */
 package kr.mjc.jacob.basicsyntax

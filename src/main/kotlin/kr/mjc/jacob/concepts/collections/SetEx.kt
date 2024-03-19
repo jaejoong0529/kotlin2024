@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/collections-overview.html#set
  */
 package kr.mjc.jacob.concepts.collections
@@ -21,6 +21,7 @@ fun main() {
 
   // 내용물 변경이 가능한 set
   val numbers2 = mutableSetOf(1, 2, 3)
+  numbers2.add(3)
   numbers2.add(4)
   println(numbers2)
 }

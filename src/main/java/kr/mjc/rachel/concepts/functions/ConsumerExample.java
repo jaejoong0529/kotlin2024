@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class ConsumerExample {
-
+  /**
+   * list의 요소에 consumer.accept(t)를 실행한다.
+   */
   public <T> void repeat(List<T> list, Consumer<T> consumer) {
-    for (T e : list)
-      consumer.accept(e);
+    for (T t : list)
+      consumer.accept(t);
   }
 
   public static void main(String[] args) {

@@ -8,29 +8,31 @@ import java.sql.ResultSet
 
 class UserRepositoryImpl : UserRepository {
 
-  private val FIND_ALL =
-    "select id, username, password, first_name, date_joined from user order by id desc limit ?,?"
+  companion object {
+    private const val FIND_ALL =
+      "select id, username, password, first_name, date_joined from user order by id desc limit ?,?"
 
-  private val FIND_BY_ID =
-    "select id, username, password, first_name, date_joined from user where id=?"
+    private const val FIND_BY_ID =
+      "select id, username, password, first_name, date_joined from user where id=?"
 
-  private val FIND_BY_USERNAME =
-    "select id, username, password, first_name, date_joined from user where username=?"
+    private const val FIND_BY_USERNAME =
+      "select id, username, password, first_name, date_joined from user where username=?"
 
-  private val SAVE =
-    "insert user(username, password, first_name) values(?, ? ,?) returning *"
+    private const val SAVE =
+      "insert user(username, password, first_name) values(?, ? ,?) returning *"
 
-  private val CHANGE_PASSWORD = "update user set password=? where id=?"
+    private const val CHANGE_PASSWORD = "update user set password=? where id=?"
 
-  private val DELETE_BY_ID = "delete from user where id=?"
+    private const val DELETE_BY_ID = "delete from user where id=?"
 
-  private val jdbcHelper = JdbcHelper(PostdbDataSource)
+    private val jdbcHelper = JdbcHelper(PostdbDataSource)
 
-  private fun mapUser(rs: ResultSet): User =
-    User(id = rs.getInt("id"), username = rs.getString("username"),
-        password = rs.getString("password"),
-        firstName = rs.getString("first_name"),
-        dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
+    private fun mapUser(rs: ResultSet): User =
+      User(id = rs.getInt("id"), username = rs.getString("username"),
+          password = rs.getString("password"),
+          firstName = rs.getString("first_name"),
+          dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
+  }
 
   /**
    * 회원 목록

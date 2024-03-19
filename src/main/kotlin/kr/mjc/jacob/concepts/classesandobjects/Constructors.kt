@@ -1,4 +1,4 @@
-/**
+/*
  * https://kotlinlang.org/docs/classes.html#constructors
  */
 package kr.mjc.jacob.concepts.classesandobjects
