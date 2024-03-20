@@ -2,15 +2,15 @@ package kr.mjc.jacob.springjdbc.user
 
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.user.User
-import kr.mjc.jacob.jdbc.user.UserRepository
+import kr.mjc.jacob.jdbc.user.UserDao
 import kr.mjc.jacob.map
 import org.springframework.jdbc.core.BeanPropertyRowMapper
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Repository
 
 @Repository
-class UserRepositoryImpl(private val template: NamedParameterJdbcTemplate) :
-    UserRepository {
+class UserDaoImpl(private val template: NamedParameterJdbcTemplate) :
+    UserDao {
 
   companion object {
     private const val FIND_ALL =
@@ -33,17 +33,17 @@ class UserRepositoryImpl(private val template: NamedParameterJdbcTemplate) :
     private val userRowMapper = BeanPropertyRowMapper(User::class.java)
   }
 
-  override fun findAll(page: Page): List<User> =
+  override fun list(page: Page): List<User> =
     template.query(FIND_ALL, page.map, userRowMapper)
 
-  override fun findById(id: Int): User? =
+  override fun getById(id: Int): User? =
     template.queryForObject(FIND_BY_ID, mapOf("id" to id), userRowMapper)
 
-  override fun findByUsername(username: String): User? =
+  override fun getByUsername(username: String): User? =
     template.queryForObject(FIND_BY_USERNAME, mapOf("username" to username),
         userRowMapper)
 
-  override fun save(user: User): User? =
+  override fun create(user: User): User? =
     template.queryForObject(SAVE, user.map, userRowMapper)
 
   override fun changePassword(id: Int, password: String) {

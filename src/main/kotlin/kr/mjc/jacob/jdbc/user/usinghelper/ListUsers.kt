@@ -10,6 +10,6 @@ fun main() {
   val page = Page(scanner.nextInt(), scanner.nextInt())
   scanner.close()
 
-  val userList = UserRepositoryImpl().findAll(page)
+  val userList = UserDaoImpl().list(page)
   userList.forEach(::println)
 }

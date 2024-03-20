@@ -4,10 +4,10 @@ import kr.mjc.jacob.jdbc.JdbcHelper
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
-import kr.mjc.jacob.jdbc.user.UserRepository
+import kr.mjc.jacob.jdbc.user.UserDao
 import java.sql.ResultSet
 
-class UserRepositoryImpl : UserRepository {
+class UserDaoImpl : UserDao {
 
   companion object {
     private const val FIND_ALL =
@@ -38,7 +38,7 @@ class UserRepositoryImpl : UserRepository {
   /**
    * 회원 목록
    */
-  override fun findAll(page: Page): List<User> {
+  override fun list(page: Page): List<User> {
     return jdbcHelper.list(FIND_ALL, page.offset, page.size) { rs ->
       mapUser(rs)
     }
@@ -47,19 +47,19 @@ class UserRepositoryImpl : UserRepository {
   /**
    * 회원 1건 조회
    */
-  override fun findById(id: Int): User =
+  override fun getById(id: Int): User =
     jdbcHelper.get(FIND_BY_ID, id) { rs -> mapUser(rs) }
 
   /**
    * 이메일로 회원 조회
    */
-  override fun findByUsername(username: String): User =
+  override fun getByUsername(username: String): User =
     jdbcHelper.get(FIND_BY_USERNAME, username) { rs -> mapUser(rs) }
 
   /**
    * 회원 가입
    */
-  override fun save(user: User): User =
+  override fun create(user: User): User =
     jdbcHelper.get(SAVE, user.username, user.password,
         user.firstName) { rs -> mapUser(rs) }
 

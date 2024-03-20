@@ -15,9 +15,9 @@ fun main() {
     newPassword = it.next()
   }
 
-  val userDao = UserRepositoryImpl()
+  val userDao = UserDaoImpl()
   try {
-    val user = userDao.findByUsername(username)
+    val user = userDao.getByUsername(username)
     val result: Boolean = BCrypt.checkpw(oldPassword, user.password)
     if (result) { // 비밀번호가 매치할 경우
       userDao.changePassword(user.id,

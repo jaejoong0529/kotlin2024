@@ -14,7 +14,7 @@ fun main() {
   }
 
   try {
-    val user = UserRepositoryImpl().findByUsername(username)
+    val user = UserDaoImpl().getByUsername(username)
     val result: Boolean = BCrypt.checkpw(password, user.password)
     if (result) println(user)
     else println("Wrong password")

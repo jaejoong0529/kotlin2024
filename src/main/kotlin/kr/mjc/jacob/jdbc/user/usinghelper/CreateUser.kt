@@ -12,7 +12,7 @@ fun main() {
   scanner.close()
 
   try {
-    val userCreated = UserRepositoryImpl().save(user)
+    val userCreated = UserDaoImpl().create(user)
     println(userCreated)
   } catch (e: SQLException) {
     println(e.message)

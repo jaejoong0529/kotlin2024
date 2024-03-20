@@ -8,7 +8,7 @@ fun main() {
   val id = Scanner(System.`in`).use { it.nextInt() }
 
   try {
-    val user = UserRepositoryImpl().findById(id)
+    val user = UserDaoImpl().getById(id)
     println(user)
   } catch (e: SQLException) {
     println(e.message)
