@@ -17,7 +17,7 @@ fun main() {
   // set은 크기가 같고 내용물이 같으면 같은 set.
   println(numbers == numbersBackwards) // == 내용물 비교 (깊은 비교)
 
-  println(numbers === numbersBackwards) // == 레퍼런스 비교 (얕은 비교)
+  println(numbers === numbersBackwards) // === 레퍼런스 비교 (얕은 비교)
 
   // 내용물 변경이 가능한 set
   val numbers2 = mutableSetOf(1, 2, 3)

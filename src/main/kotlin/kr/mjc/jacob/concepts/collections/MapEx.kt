@@ -16,7 +16,7 @@ fun main() {
 
   // 내용물 변경이 가능한 map
   val numbersMap2 = mutableMapOf("one" to 1, "two" to 2) // {one=1, two=2}
-  numbersMap2["three"] = 3 // {one=1, two=2, three=3}
-  numbersMap2["one"] = 11     // {one=11, two=2, three=3}
+  numbersMap2["three"] = 3  // {one=1, two=2, three=3}
+  numbersMap2["one"] = 11   // {one=11, two=2, three=3}
   println(numbersMap2)
 }
