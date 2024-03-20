@@ -2,7 +2,7 @@ package kr.mjc.jacob.springjdbc.user
 
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.user.User
-import kr.mjc.jacob.jdbc.user.usinghelper.UserRepository
+import kr.mjc.jacob.jdbc.user.UserRepository
 import kr.mjc.jacob.map
 import org.springframework.jdbc.core.BeanPropertyRowMapper
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate

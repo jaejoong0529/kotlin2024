@@ -1,6 +1,7 @@
 package kr.mjc.jacob.jdbc.user.usinghelper
 
 import kr.mjc.jacob.jdbc.user.User
+import java.sql.SQLException
 import java.util.*
 
 fun main() {
@@ -10,6 +11,10 @@ fun main() {
       firstName = scanner.next()).hashPassword()
   scanner.close()
 
-  val userCreated = UserRepositoryImpl().save(user)
-  println(userCreated)
+  try {
+    val userCreated = UserRepositoryImpl().save(user)
+    println(userCreated)
+  } catch (e: SQLException) {
+    println(e.message)
+  }
 }

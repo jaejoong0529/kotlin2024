@@ -1,7 +1,7 @@
 package kr.mjc.jacob.springjdbc.user
 
 import kr.mjc.jacob.jdbc.user.User
-import kr.mjc.jacob.jdbc.user.usinghelper.UserRepository
+import kr.mjc.jacob.jdbc.user.UserRepository
 import kr.mjc.jacob.springjdbc.AppConfig
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext

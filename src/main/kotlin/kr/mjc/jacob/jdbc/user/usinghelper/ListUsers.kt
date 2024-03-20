@@ -11,5 +11,5 @@ fun main() {
   scanner.close()
 
   val userList = UserRepositoryImpl().findAll(page)
-  println(userList)
+  userList.forEach(::println)
 }

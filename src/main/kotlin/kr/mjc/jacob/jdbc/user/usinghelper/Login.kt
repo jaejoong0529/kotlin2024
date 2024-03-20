@@ -1,7 +1,7 @@
 package kr.mjc.jacob.jdbc.user.usinghelper
 
-import kr.mjc.jacob.jdbc.JdbcHelper
 import org.mindrot.jbcrypt.BCrypt
+import java.sql.SQLException
 import java.util.*
 
 fun main() {
@@ -18,7 +18,7 @@ fun main() {
     val result: Boolean = BCrypt.checkpw(password, user.password)
     if (result) println(user)
     else println("Wrong password")
-  } catch (e: JdbcHelper.NoResultException) {
-    println("No user")
+  } catch (e: SQLException) {
+    println(e.message)
   }
 }

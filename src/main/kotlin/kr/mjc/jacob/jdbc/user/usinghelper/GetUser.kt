@@ -1,6 +1,6 @@
 package kr.mjc.jacob.jdbc.user.usinghelper
 
-import kr.mjc.jacob.jdbc.JdbcHelper
+import java.sql.SQLException
 import java.util.*
 
 fun main() {
@@ -10,7 +10,7 @@ fun main() {
   try {
     val user = UserRepositoryImpl().findById(id)
     println(user)
-  } catch (e: JdbcHelper.NoResultException) {
-    println("No user")
+  } catch (e: SQLException) {
+    println(e.message)
   }
 }

@@ -1,7 +1,6 @@
-package kr.mjc.jacob.jdbc.user.usinghelper
+package kr.mjc.jacob.jdbc.user
 
 import kr.mjc.jacob.jdbc.Page
-import kr.mjc.jacob.jdbc.user.User
 
 interface UserRepository {
   fun findAll(page: Page): List<User>
