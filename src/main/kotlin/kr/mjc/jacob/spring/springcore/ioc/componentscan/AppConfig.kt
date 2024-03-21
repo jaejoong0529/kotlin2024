@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springcore.ioc.componentscan
+package kr.mjc.jacob.spring.springcore.ioc.componentscan
 
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext

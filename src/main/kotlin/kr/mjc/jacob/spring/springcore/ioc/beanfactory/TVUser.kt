@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springcore.ioc.beanfactory
+package kr.mjc.jacob.spring.springcore.ioc.beanfactory
 
 /**
  * p.44 TVUser.java

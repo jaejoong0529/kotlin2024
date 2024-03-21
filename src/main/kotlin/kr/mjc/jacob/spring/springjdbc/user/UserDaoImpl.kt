@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springjdbc.user
+package kr.mjc.jacob.spring.springjdbc.user
 
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.user.User

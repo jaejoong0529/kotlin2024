@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springjdbc.post
+package kr.mjc.jacob.spring.springjdbc.post
 
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.post.Post

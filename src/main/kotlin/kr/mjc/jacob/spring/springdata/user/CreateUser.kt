@@ -1,7 +1,7 @@
-package kr.mjc.jacob.springdata.user
+package kr.mjc.jacob.spring.springdata.user
 
 import kr.mjc.jacob.bcryptHashed
-import kr.mjc.jacob.springdata.SpringDataConfig
+import kr.mjc.jacob.spring.springdata.SpringDataConfig
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.*

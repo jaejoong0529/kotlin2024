@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springcore.di.componentscan
+package kr.mjc.jacob.spring.springcore.di.componentscan
 
 interface Speaker {
   fun volumeUp()

@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springcore.di.javaconfig
+package kr.mjc.jacob.spring.springcore.di.javaconfig
 
 interface Speaker {
   fun volumeUp()

@@ -1,6 +1,6 @@
-package kr.mjc.jacob.springcore.ioc.componentscan
+package kr.mjc.jacob.spring.springcore.ioc.componentscan
 
-import kr.mjc.jacob.springcore.ioc.beanfactory.TV
+import kr.mjc.jacob.spring.springcore.ioc.beanfactory.TV
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 

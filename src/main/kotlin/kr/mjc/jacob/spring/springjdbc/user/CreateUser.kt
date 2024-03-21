@@ -1,9 +1,9 @@
-package kr.mjc.jacob.springjdbc.user
+package kr.mjc.jacob.spring.springjdbc.user
 
 import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.jdbc.user.User
 import kr.mjc.jacob.jdbc.user.UserDao
-import kr.mjc.jacob.springjdbc.SpringJdbcConfig
+import kr.mjc.jacob.spring.springjdbc.SpringJdbcConfig
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.dao.EmptyResultDataAccessException

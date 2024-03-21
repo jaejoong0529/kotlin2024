@@ -1,6 +1,6 @@
-package kr.mjc.jacob.springcore.di.javaconfig
+package kr.mjc.jacob.spring.springcore.di.javaconfig
 
-import kr.mjc.jacob.springcore.ioc.beanfactory.TV
+import kr.mjc.jacob.spring.springcore.ioc.beanfactory.TV
 import org.slf4j.LoggerFactory
 
 class SamsungTV(val speaker: Speaker) : TV {

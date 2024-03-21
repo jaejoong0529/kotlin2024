@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springjdbc
+package kr.mjc.jacob.spring.springjdbc
 
 import org.mariadb.jdbc.MariaDbDataSource
 import org.springframework.context.annotation.Bean

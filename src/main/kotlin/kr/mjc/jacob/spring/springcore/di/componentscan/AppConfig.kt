@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springcore.di.componentscan
+package kr.mjc.jacob.spring.springcore.di.componentscan
 
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
@@ -10,16 +10,18 @@ import org.springframework.context.annotation.Configuration
 open class AppConfig
 
 fun main() {
-  val log = LoggerFactory.getLogger(AppConfig::class.java)
+  val log = LoggerFactory.getLogger(
+      kr.mjc.jacob.spring.springcore.di.componentscan.AppConfig::class.java)
 
-  AnnotationConfigApplicationContext(AppConfig::class.java).use { context ->
+  AnnotationConfigApplicationContext(
+      kr.mjc.jacob.spring.springcore.di.componentscan.AppConfig::class.java).use { context ->
     log.info("빈 구성을 마쳤습니다.")
-    context.getBean(SamsungTV::class.java).run {
+    context.getBean(kr.mjc.jacob.spring.springcore.di.componentscan.SamsungTV::class.java).run {
       volumeUp()
       volumeDown()
     }
 
-    context.getBean(LgTV::class.java).run {
+    context.getBean(kr.mjc.jacob.spring.springcore.di.componentscan.LgTV::class.java).run {
       volumeUp()
       volumeDown()
     }

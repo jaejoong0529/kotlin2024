@@ -1,6 +1,6 @@
-package kr.mjc.jacob.springcore.di.componentscan
+package kr.mjc.jacob.spring.springcore.di.componentscan
 
-import kr.mjc.jacob.springcore.ioc.beanfactory.TV
+import kr.mjc.jacob.spring.springcore.ioc.beanfactory.TV
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier

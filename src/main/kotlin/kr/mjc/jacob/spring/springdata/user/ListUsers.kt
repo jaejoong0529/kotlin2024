@@ -1,6 +1,6 @@
-package kr.mjc.jacob.springdata.user
+package kr.mjc.jacob.spring.springdata.user
 
-import kr.mjc.jacob.springdata.SpringDataConfig
+import kr.mjc.jacob.spring.springdata.SpringDataConfig
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort

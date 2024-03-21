@@ -52,4 +52,3 @@ kotlin {
 application {
   mainClass.set("kr.mjc.jacob.basics.HelloWorldKt")
 }
-

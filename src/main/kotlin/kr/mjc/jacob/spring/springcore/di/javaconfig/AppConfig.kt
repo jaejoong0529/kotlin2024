@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springcore.di.javaconfig
+package kr.mjc.jacob.spring.springcore.di.javaconfig
 
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext

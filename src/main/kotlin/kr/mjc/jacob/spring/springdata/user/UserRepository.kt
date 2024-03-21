@@ -1,4 +1,4 @@
-package kr.mjc.jacob.springdata.user
+package kr.mjc.jacob.spring.springdata.user
 
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.PagingAndSortingRepository

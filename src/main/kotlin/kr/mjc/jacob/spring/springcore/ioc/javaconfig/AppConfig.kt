@@ -1,7 +1,7 @@
-package kr.mjc.jacob.springcore.ioc.javaconfig
+package kr.mjc.jacob.spring.springcore.ioc.javaconfig
 
-import kr.mjc.jacob.springcore.ioc.beanfactory.LgTV
-import kr.mjc.jacob.springcore.ioc.beanfactory.SamsungTV
+import kr.mjc.jacob.spring.springcore.ioc.beanfactory.LgTV
+import kr.mjc.jacob.spring.springcore.ioc.beanfactory.SamsungTV
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean
