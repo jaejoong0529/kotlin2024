@@ -11,7 +11,7 @@ interface UserDao {
 
   fun create(user: User): User?
 
-  fun changePassword(id: Int, password: String)
+  fun changePassword(id: Int, password: String): Int
 
-  fun deleteById(id: Int)
+  fun deleteById(id: Int): Int
 }

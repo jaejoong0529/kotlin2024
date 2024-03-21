@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations
  */
 interface UserRepository : CrudRepository<User, Int>,
     PagingAndSortingRepository<User, Int>, CustomUserRepository {
-  fun findByUsername(username: String): User
+  fun findByUsername(username: String): User?
 }
 
 /**
@@ -28,8 +28,10 @@ interface CustomUserRepository {
 class CustomUserRepositoryImpl(private val npjo: NamedParameterJdbcOperations) :
     CustomUserRepository {
 
-  private val CHANGE_PASSWORD =
-    "update user set password=:password where id=:id"
+  companion object {
+    private const val CHANGE_PASSWORD =
+      "update user set password=:password where id=:id"
+  }
 
   override fun changePassword(id: Int, password: String) {
     npjo.update(CHANGE_PASSWORD, mapOf("id" to id, "password" to password))

@@ -1,20 +1,21 @@
 package kr.mjc.jacob.jdbc.user.usinghelper
 
+import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.jdbc.user.User
-import java.sql.SQLException
 import java.util.*
 
 fun main() {
-  print("Get - username(username) password first_name ? ")
-  val scanner = Scanner(System.`in`)
-  val user = User(username = scanner.next(), password = scanner.next(),
-      firstName = scanner.next()).hashPassword()
-  scanner.close()
+  print("Create - username(username) password first_name ? ")
+  val user = Scanner(System.`in`).use {
+    User(username = it.next(), password = it.next().bcryptHashed,
+        firstName = it.next())
+  }
 
-  try {
-    val userCreated = UserDaoImpl().create(user)
+  val userDao = UserDaoImpl()
+  if (userDao.getByUsername(user.username) == null) { // username 없을 경우
+    val userCreated = userDao.create(user)
     println(userCreated)
-  } catch (e: SQLException) {
-    println(e.message)
+  } else {
+    println("username이 존재합니다.")
   }
 }

@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 @Configuration
 @ComponentScan
 @PropertySource("classpath:application.properties")
-open class AppConfig(private val env: Environment) {
+open class SpringJdbcConfig(private val env: Environment) {
   @Bean
   open fun dataSource() = MariaDbDataSource(env.getProperty("db.url"))
 

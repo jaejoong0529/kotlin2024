@@ -25,15 +25,15 @@ class UserDaoImpl : UserDao {
     private const val CHANGE_PASSWORD = "update user set password=? where id=?"
 
     private const val DELETE_BY_ID = "delete from user where id=?"
-
-    private val jdbcHelper = JdbcHelper(PostdbDataSource)
-
-    private fun mapUser(rs: ResultSet): User =
-      User(id = rs.getInt("id"), username = rs.getString("username"),
-          password = rs.getString("password"),
-          firstName = rs.getString("first_name"),
-          dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
   }
+
+  private val jdbcHelper = JdbcHelper(PostdbDataSource)
+
+  private fun mapUser(rs: ResultSet): User =
+    User(id = rs.getInt("id"), username = rs.getString("username"),
+        password = rs.getString("password"),
+        firstName = rs.getString("first_name"),
+        dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
 
   /**
    * 회원 목록
@@ -46,34 +46,34 @@ class UserDaoImpl : UserDao {
 
   /**
    * 회원 1건 조회
+   * @return 회원이 없을 경우 null
    */
-  override fun getById(id: Int): User =
+  override fun getById(id: Int): User? =
     jdbcHelper.get(FIND_BY_ID, id) { rs -> mapUser(rs) }
 
   /**
    * 이메일로 회원 조회
+   * @return 회원이 없을 경우 null
    */
-  override fun getByUsername(username: String): User =
+  override fun getByUsername(username: String): User? =
     jdbcHelper.get(FIND_BY_USERNAME, username) { rs -> mapUser(rs) }
 
   /**
    * 회원 가입
+   * @exception SQLException username이 중복일 경우
    */
-  override fun create(user: User): User =
+  override fun create(user: User): User? =
     jdbcHelper.get(SAVE, user.username, user.password,
         user.firstName) { rs -> mapUser(rs) }
 
   /**
    * 비밀번호 변경
    */
-  override fun changePassword(id: Int, password: String) {
+  override fun changePassword(id: Int, password: String) =
     jdbcHelper.update(CHANGE_PASSWORD, password, id)
-  }
 
   /**
    * 회원 삭제
    */
-  override fun deleteById(id: Int) {
-    jdbcHelper.update(DELETE_BY_ID, id)
-  }
+  override fun deleteById(id: Int) = jdbcHelper.update(DELETE_BY_ID, id)
 }

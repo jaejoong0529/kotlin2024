@@ -1,4 +1,4 @@
-package kr.mjc.rachel.jdbc;
+package kr.mjc.rachel.jdbc.user;
 
 import lombok.Data;
 import org.mindrot.jbcrypt.BCrypt;
@@ -17,9 +17,8 @@ public class User {
   private DateTimeFormatter formatter =
       DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-  public User hashPassword() {
+  public void hashPassword() {
     this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-    return this;
   }
 
   @Override

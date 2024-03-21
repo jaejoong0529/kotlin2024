@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager
 @Configuration
 @EnableJdbcRepositories
 @PropertySource("/application.properties")
-open class AppConfig(private val env: Environment) :
+open class SpringDataConfig(private val env: Environment) :
     AbstractJdbcConfiguration() {
 
   @Bean

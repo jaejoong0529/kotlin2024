@@ -20,7 +20,7 @@ open class AppConfig {
 }
 
 fun main() {
-  val log = LoggerFactory.getLogger(object {}.javaClass.enclosingClass)
+  val log = LoggerFactory.getLogger(object {}.javaClass)
 
   val context = AnnotationConfigApplicationContext(AppConfig::class.java)
   log.info("빈을 구성했습니다.")

@@ -1,7 +1,7 @@
-package kr.mjc.rachel.jdbc.raw;
+package kr.mjc.rachel.jdbc.user;
 
 import kr.mjc.rachel.jdbc.DataSourceFactory;
-import kr.mjc.rachel.jdbc.User;
+import kr.mjc.rachel.jdbc.user.User;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

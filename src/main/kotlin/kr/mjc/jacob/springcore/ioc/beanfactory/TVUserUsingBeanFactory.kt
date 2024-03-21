@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory
  * p.45 TVUser.java 수정
  */
 fun main() {
-  val log = LoggerFactory.getLogger(object {}.javaClass.enclosingClass)
+  val log = LoggerFactory.getLogger(object {}.javaClass)
 
   // 빈들을 미리 생성해서 factory에 보관한다.
   val factory = BeanFactory()

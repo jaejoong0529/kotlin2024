@@ -1,7 +1,5 @@
 package kr.mjc.jacob.springjdbc.user
 
-import kr.mjc.jacob.bcryptHashed
-import kr.mjc.jacob.jdbc.user.User
 import kr.mjc.jacob.jdbc.user.UserDao
 import kr.mjc.jacob.springjdbc.SpringJdbcConfig
 import org.slf4j.LoggerFactory
@@ -14,17 +12,17 @@ fun main() {
   val userDao = context.getBean(UserDao::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Create - username(email) password first_name ? ")
-  val user = Scanner(System.`in`).use {
-    User(username = it.next(), password = it.next().bcryptHashed,
-        firstName = it.next())
-  }
+  print("Login - username(email) password ? ")
+  val scanner = Scanner(System.`in`)
+  val username = scanner.next()
+  val password = scanner.next()
+  scanner.close()
 
   try {
-    userDao.getByUsername(user.username)
-    log.debug("username이 존재합니다.")
-  } catch (e: EmptyResultDataAccessException) { // username이 없을 경우
-    val userCreated = userDao.create(user)
-    log.info(userCreated.toString())
+    val user = userDao.getByUsername(username)
+    if (user?.matchPassword(password) == true) log.info(user.toString())
+    else log.debug("Wrong password.")
+  } catch (e: EmptyResultDataAccessException) {
+    log.error("No user.")
   }
 }

@@ -2,7 +2,6 @@ package kr.mjc.jacob.jdbc
 
 import java.sql.PreparedStatement
 import java.sql.ResultSet
-import java.sql.SQLException
 import javax.sql.DataSource
 
 /**
@@ -30,15 +29,15 @@ class JdbcHelper(val ds: DataSource) {
 
   /**
    * 한 건을 가져오는 helper method
-   * @return 한 건 오브젝트. 결과가 없을 경우 SQLException
+   * @return 한 건 오브젝트. 결과가 없을 경우 null
    */
   inline fun <T> get(sql: String, vararg params: Any,
-                     mapRow: (ResultSet) -> T): T {
+                     mapRow: (ResultSet) -> T): T? {
     ds.connection.use { conn ->
       conn.prepareStatement(sql).use { ps ->
         setParameters(ps, params)
         val rs = ps.executeQuery()
-        return if (rs.next()) mapRow(rs) else throw SQLException("No results")
+        return if (rs.next()) mapRow(rs) else null
       }
     }
   }

@@ -1,7 +1,6 @@
-package kr.mjc.rachel.jdbc.raw;
+package kr.mjc.rachel.jdbc.user;
 
 import kr.mjc.rachel.jdbc.DataSourceFactory;
-import kr.mjc.rachel.jdbc.User;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -17,8 +16,8 @@ public class CreateUser {
     user.setUsername(scanner.next());
     user.setPassword(scanner.next());
     user.setFirstName(scanner.next());
-    user.hashPassword();
     scanner.close();
+    user.hashPassword();  // 패스워드 해시
 
     final String sql =
         "insert user(username, password, first_name) values(?, ?, ?)";

@@ -1,5 +1,6 @@
 package kr.mjc.jacob.jdbc.user.raw
 
+import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import java.util.*
@@ -7,8 +8,9 @@ import java.util.*
 fun main() {
   print("Create - username(username) password first_name ? ")
   val scanner = Scanner(System.`in`)
-  val user = User(username = scanner.next(), password = scanner.next(),
-      firstName = scanner.next()).hashPassword()
+  val user =
+    User(username = scanner.next(), password = scanner.next().bcryptHashed,
+        firstName = scanner.next())
   scanner.close()
   val sql = "insert user(username, password, first_name) values(?, ?, ?)"
   try {

@@ -1,5 +1,6 @@
 package kr.mjc.jacob
 
+import org.mindrot.jbcrypt.BCrypt
 import kotlin.reflect.full.memberProperties
 
 /**
@@ -9,3 +10,6 @@ val Any.map: Map<String, Any?>
   get() = this::class.memberProperties.associate { prop ->
     prop.name to prop.getter.call(this)
   }
+
+val String.bcryptHashed
+  get() = BCrypt.hashpw(this, BCrypt.gensalt())
