@@ -11,5 +11,5 @@ val Any.map: Map<String, Any?>
     prop.name to prop.getter.call(this)
   }
 
-val String.bcryptHashed
+val String.bcryptHashed: String
   get() = BCrypt.hashpw(this, BCrypt.gensalt())
