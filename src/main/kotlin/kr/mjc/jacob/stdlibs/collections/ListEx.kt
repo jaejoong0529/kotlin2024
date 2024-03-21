@@ -1,7 +1,7 @@
 /*
  * https://kotlinlang.org/docs/collections-overview.html#list
  */
-package kr.mjc.jacob.concepts.collections
+package kr.mjc.jacob.stdlibs.collections
 
 /**
  * List : 순서가 있는 목록

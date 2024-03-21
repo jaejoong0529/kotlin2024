@@ -1,7 +1,7 @@
 /*
  * https://kotlinlang.org/docs/collections-overview.html#map
  */
-package kr.mjc.jacob.concepts.collections
+package kr.mjc.jacob.stdlibs.collections
 
 /**
  * Map : key=value 쌍의 목록. key 목록은 Set이다.

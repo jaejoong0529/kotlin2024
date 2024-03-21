@@ -1,7 +1,7 @@
 /*
  * https://kotlinlang.org/docs/collections-overview.html#set
  */
-package kr.mjc.jacob.concepts.collections
+package kr.mjc.jacob.stdlibs.collections
 
 /**
  * Set : 중복이 없는 순서가 중요하지 않은 목록
