@@ -1,7 +1,7 @@
 package kr.mjc.jacob.jdbc.user.raw
 
 import kr.mjc.jacob.bcryptHashed
-import kr.mjc.jacob.jdbc.PostdbDataSource
+import kr.mjc.jacob.jdbc.DataSourceFactory
 import kr.mjc.jacob.jdbc.user.User
 import java.util.*
 
@@ -14,7 +14,7 @@ fun main() {
   scanner.close()
   val sql = "insert user(username, password, first_name) values(?, ?, ?)"
   try {
-    PostdbDataSource.connection.use { conn ->
+    DataSourceFactory.dataSource.connection.use { conn ->
       conn.prepareStatement(sql).use { ps ->
         ps.setString(1, user.username)
         ps.setString(2, user.password)

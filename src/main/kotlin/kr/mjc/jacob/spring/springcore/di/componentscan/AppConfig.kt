@@ -11,17 +11,20 @@ open class AppConfig
 
 fun main() {
   val log = LoggerFactory.getLogger(
-      kr.mjc.jacob.spring.springcore.di.componentscan.AppConfig::class.java)
+      AppConfig::class.java)
 
   AnnotationConfigApplicationContext(
-      kr.mjc.jacob.spring.springcore.di.componentscan.AppConfig::class.java).use { context ->
+      AppConfig::class.java).use { context ->
     log.info("빈 구성을 마쳤습니다.")
-    context.getBean(kr.mjc.jacob.spring.springcore.di.componentscan.SamsungTV::class.java).run {
-      volumeUp()
-      volumeDown()
-    }
+    context.getBean(
+        SamsungTV::class.java)
+      .run {
+        volumeUp()
+        volumeDown()
+      }
 
-    context.getBean(kr.mjc.jacob.spring.springcore.di.componentscan.LgTV::class.java).run {
+    context.getBean(
+        LgTV::class.java).run {
       volumeUp()
       volumeDown()
     }

@@ -1,8 +1,8 @@
 package kr.mjc.jacob.jdbc.user.usinghelper
 
+import kr.mjc.jacob.jdbc.DataSourceFactory
 import kr.mjc.jacob.jdbc.JdbcHelper
 import kr.mjc.jacob.jdbc.Page
-import kr.mjc.jacob.jdbc.PostdbDataSource
 import kr.mjc.jacob.jdbc.user.User
 import kr.mjc.jacob.jdbc.user.UserDao
 import java.sql.ResultSet
@@ -27,7 +27,7 @@ class UserDaoImpl : UserDao {
     private const val DELETE_BY_ID = "delete from user where id=?"
   }
 
-  private val jdbcHelper = JdbcHelper(PostdbDataSource)
+  private val jdbcHelper = JdbcHelper(DataSourceFactory.dataSource)
 
   private fun mapUser(rs: ResultSet): User =
     User(id = rs.getInt("id"), username = rs.getString("username"),
