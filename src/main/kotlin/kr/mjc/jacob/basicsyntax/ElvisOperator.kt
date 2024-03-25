@@ -4,7 +4,7 @@
 package kr.mjc.jacob.basicsyntax
 
 fun main() {
-  val b: String? = "abc"
+  val b: String = "abc"
   val l: Int = b?.length ?: -1 // if (b != null) b.length else -1
   println(l)
 }

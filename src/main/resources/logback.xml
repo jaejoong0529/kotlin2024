@@ -2,7 +2,9 @@
 <configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%date{HH:mm:ss} [%thread] %highlight(%level) %magenta(%logger{36}) %line - %msg%n</pattern>
+      <pattern>%date{HH:mm:ss} [%thread] %highlight(%level)
+        %magenta(%logger{36}) %line - %msg%n
+      </pattern>
     </encoder>
   </appender>
 
@@ -12,5 +14,5 @@
 
   <logger name="kr.mjc.jacob" level="debug"/>
   <logger name="kr.mjc.rachel" level="debug"/>
-  <logger name="org.mariadb.jdbc.client.impl.StandardClient" level="debug"/>
+  <logger name="org.mariadb.jdbc.client.impl.StandardClient" level="info"/>
 </configuration>

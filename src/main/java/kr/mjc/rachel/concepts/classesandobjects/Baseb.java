@@ -30,7 +30,7 @@ final class Derivedb extends Baseb {
     this.size = super.getSize() + lastName.length();
   }
 
-  public final String getLastName() {
+  public String getLastName() {
     return lastName;
   }
 

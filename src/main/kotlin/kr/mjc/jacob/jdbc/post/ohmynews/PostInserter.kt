@@ -1,8 +1,8 @@
 package kr.mjc.jacob.jdbc.post.ohmynews
 
 import com.google.gson.Gson
+import kr.mjc.jacob.jdbc.DataSourceFactory
 import kr.mjc.jacob.jdbc.JdbcHelper
-import kr.mjc.jacob.jdbc.PostdbDataSource
 import org.json.XML
 import java.io.InputStreamReader
 import java.net.URI
@@ -13,10 +13,11 @@ import java.net.URI
 class PostInserter {
 
   companion object {
-    private val jdbcHelper = JdbcHelper(PostdbDataSource)
     private const val INSERT_POST =
       "insert post(title, content, user_id, first_name, pub_date) values(?,?,?,?,?)"
   }
+
+  private val jdbcHelper = JdbcHelper(DataSourceFactory.dataSource)
 
   fun saveRss(rss: String) {
     val ohmynews = URI.create(rss).toURL()

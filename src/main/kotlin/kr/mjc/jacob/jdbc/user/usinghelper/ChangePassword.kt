@@ -1,30 +1,23 @@
 package kr.mjc.jacob.jdbc.user.usinghelper
 
-import kr.mjc.jacob.jdbc.JdbcHelper
-import org.mindrot.jbcrypt.BCrypt
+import kr.mjc.jacob.bcryptHashed
+import kr.mjc.jacob.jdbc.user.User
 import java.util.*
 
 fun main() {
-  print("Login - username oldPassword newPassword? ")
-  var username: String
-  var oldPassword: String
-  var newPassword: String
-  Scanner(System.`in`).use {
-    username = it.next()
-    oldPassword = it.next()
-    newPassword = it.next()
-  }
+  print("Change password - username oldPassword newPassword? ")
+  val scanner = Scanner(System.`in`)
+  val username = scanner.next()
+  val oldPassword = scanner.next()
+  val newPassword = scanner.next()
+  scanner.close()
 
-  val userDao = UserRepositoryImpl()
-  try {
-    val user = userDao.findByUsername(username)
-    val result: Boolean = BCrypt.checkpw(oldPassword, user.password)
-    if (result) {
-      userDao.changePassword(user.id!!,
-          BCrypt.hashpw(newPassword, BCrypt.gensalt()))
-      println("Password changed!")
-    } else println("Wrong password")
-  } catch (e: JdbcHelper.NoResultException) {
-    println("No user")
+  val userDao = UserDaoImpl()
+  val user: User? = userDao.getByUsername(username)
+  if (user?.matchPassword(oldPassword) == true) {
+    userDao.changePassword(user.id, newPassword.bcryptHashed)
+    println("Password changed.")
+  } else {
+    println("Wrong username or password")
   }
 }

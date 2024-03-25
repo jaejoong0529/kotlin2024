@@ -1,0 +1,38 @@
+/*
+ * https://kotlinlang.org/docs/extensions.html
+ */
+package kr.mjc.jacob.concepts.classesandobjects
+
+fun main() {
+  val list = mutableListOf(10, 20, 30)
+  swapStatic(list, 1, 2)
+  println(list)
+
+  list.swapExension(0, 2)
+  println(list)
+
+  println(list.lastElement)
+}
+
+/**
+ * Top level 함수 (static)
+ */
+fun <T> swapStatic(list: MutableList<T>, index1: Int, index2: Int) {
+  val tmp = list[index1]
+  list[index1] = list[index2]
+  list[index2] = tmp
+}
+
+/**
+ * Extension function (확장 함수)
+ */
+fun <T> MutableList<T>.swapExension(index1: Int, index2: Int) {
+  val tmp = this[index1]
+  this[index1] = this[index2]
+  this[index2] = tmp
+}
+
+/**
+ * Extension property (확장 속성)
+ */
+val <T> List<T>.lastElement: T get() = this[size - 1]
