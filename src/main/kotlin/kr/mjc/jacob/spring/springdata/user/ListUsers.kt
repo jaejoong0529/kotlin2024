@@ -1,14 +1,12 @@
 package kr.mjc.jacob.spring.springdata.user
 
-import kr.mjc.jacob.spring.springdata.SpringDataConfig
-import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import kr.mjc.jacob.spring.springdata.applicationContext
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import java.util.*
 
 fun main() {
-  val context = AnnotationConfigApplicationContext(SpringDataConfig::class.java)
-  val userRepository = context.getBean(UserRepository::class.java)
+  val userRepository = applicationContext.getBean(UserRepository::class.java)
 
   print("List - pageNumber pageSize ? ")
   val scanner = Scanner(System.`in`)

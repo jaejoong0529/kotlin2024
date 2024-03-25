@@ -1,6 +1,7 @@
 package kr.mjc.jacob.spring.springdata
 
 import org.mariadb.jdbc.MariaDbDataSource
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
@@ -26,3 +27,6 @@ open class SpringDataConfig(private val env: Environment) :
   @Bean
   open fun transactionManager() = DataSourceTransactionManager(dataSource())
 }
+
+val applicationContext =
+  AnnotationConfigApplicationContext(SpringDataConfig::class.java)
