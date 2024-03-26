@@ -1,14 +1,12 @@
 package kr.mjc.jacob.spring.springdata.user
 
-import kr.mjc.jacob.spring.springdata.SpringDataConfig
+import kr.mjc.jacob.spring.springdata.applicationContext
 import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 fun main() {
-  val context = AnnotationConfigApplicationContext(SpringDataConfig::class.java)
-  val userRepository = context.getBean(UserRepository::class.java)
+  val userRepository = applicationContext.getBean(UserRepository::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
   print("Find - id ? ")

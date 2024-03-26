@@ -6,11 +6,13 @@ import javax.sql.DataSource
 
 class DataSourceFactory {
   companion object {
-    private val props = Properties().apply {
-      load(DataSourceFactory::class.java.getResourceAsStream(
+    private fun createDataSource(): DataSource {
+      val props = Properties()
+      props.load(DataSourceFactory::class.java.getResourceAsStream(
           "/application.properties"))
+      return MariaDbDataSource(props.getProperty("db.url"))
     }
 
-    val dataSource: DataSource = MariaDbDataSource(props.getProperty("db.url"))
+    val dataSource: DataSource = createDataSource()
   }
 }

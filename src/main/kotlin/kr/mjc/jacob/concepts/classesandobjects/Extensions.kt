@@ -6,12 +6,12 @@ package kr.mjc.jacob.concepts.classesandobjects
 fun main() {
   val list = mutableListOf(10, 20, 30)
   swapStatic(list, 1, 2)
-  println(list)
+  println(list) // [10, 30, 20]
 
   list.swapExension(0, 2)
-  println(list)
+  println(list) // [20, 30, 10]
 
-  println(list.lastElement)
+  println(list.lastElement) // 10
 }
 
 /**
