@@ -1,25 +1,25 @@
-package kr.mjc.jacob.jdbc.user.raw
+package kr.mjc.jacob.jdbc.post.raw
 
 import kr.mjc.jacob.jdbc.DataSourceFactory
-import kr.mjc.jacob.jdbc.user.mapUser
+import kr.mjc.jacob.jdbc.post.mapPost
 import java.util.*
 
 fun main() {
   print("Get - id ? ")
   val id = Scanner(System.`in`).use { it.nextInt() }
-
-  val sql =
-    "select id, username, password, first_name, date_joined from user where id=?"
+  val sql = """
+    select id, title, content, user_id, first_name, pub_date, last_modified
+    from post where id=?""".trimIndent()
 
   DataSourceFactory.dataSource.connection.use { conn ->
     conn.prepareStatement(sql).use { ps ->
       ps.setInt(1, id)
       ps.executeQuery().use { rs ->
         if (rs.next()) {
-          val user = mapUser(rs)
-          println(user)
+          val post = mapPost(rs)
+          println(post)
         } else {
-          println("사용자 없음")
+          println("포스트 없음")
         }
       }
     }

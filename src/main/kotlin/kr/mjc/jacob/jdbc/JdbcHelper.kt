@@ -14,8 +14,8 @@ class JdbcHelper(val ds: DataSource) {
    * 목록을 가져오는 helper method
    * @return 결과 리스트. 결과가 없을 경우 빈 리스트
    */
-  inline fun <T> list(sql: String, vararg params: Any,
-                      mapRow: (ResultSet) -> T): List<T> {
+  inline fun <T> list(sql: String, mapRow: (ResultSet) -> T,
+                      vararg params: Any): List<T> {
     ds.connection.use { conn ->
       conn.prepareStatement(sql).use { ps ->
         setParameters(ps, params)
@@ -31,8 +31,8 @@ class JdbcHelper(val ds: DataSource) {
    * 한 건을 가져오는 helper method
    * @return 한 건 오브젝트. 결과가 없을 경우 null
    */
-  inline fun <T> get(sql: String, vararg params: Any,
-                     mapRow: (ResultSet) -> T): T? {
+  inline fun <T> get(sql: String, mapRow: (ResultSet) -> T,
+                     vararg params: Any): T? {
     ds.connection.use { conn ->
       conn.prepareStatement(sql).use { ps ->
         setParameters(ps, params)

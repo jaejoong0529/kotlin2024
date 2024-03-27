@@ -1,18 +1,20 @@
-package kr.mjc.jacob.jdbc.user.raw
+package kr.mjc.jacob.jdbc.post.raw
 
 import kr.mjc.jacob.jdbc.DataSourceFactory
 import kr.mjc.jacob.jdbc.Page
-import kr.mjc.jacob.jdbc.user.User
-import kr.mjc.jacob.jdbc.user.mapUser
+import kr.mjc.jacob.jdbc.post.Post
+import kr.mjc.jacob.jdbc.post.mapPost
 import java.util.*
 
 fun main() {
   print("List - pageNumber pageSize ? ")
   val page = Scanner(System.`in`).use { Page(it.nextInt(), it.nextInt()) }
 
-  val sql =
-    "select id, username, first_name, date_joined from user order by id desc limit ?,?"
-  val userList = mutableListOf<User>()
+  val sql = """
+    select id, title, user_id, first_name, pub_date, last_modified
+    from post order by id desc limit ?,?""".trimIndent()
+
+  val postList = mutableListOf<Post>()
   DataSourceFactory.dataSource.connection.use { conn ->
     conn.prepareStatement(sql).use { ps ->
       ps.setInt(1, page.offset)
@@ -20,11 +22,11 @@ fun main() {
 
       ps.executeQuery().use { rs ->
         while (rs.next()) {
-          val user = mapUser(rs)
-          userList.add(user)
+          val post = mapPost(rs)
+          postList.add(post)
         }
       }
     }
   }
-  userList.forEach(::println)
+  postList.forEach(::println)
 }

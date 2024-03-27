@@ -16,8 +16,6 @@ data class User(var id: Int = 0, var username: String = "",
     BCrypt.checkpw(password, this.password)
 
   override fun toString(): String {
-    return "User(id=$id, username='$username', firstName='$firstName', dateJoined=${
-      dateJoined.formatted
-    })"
+    return "User(id=$id, username='$username', firstName='$firstName', dateJoined=${dateJoined.formatted})"
   }
 }

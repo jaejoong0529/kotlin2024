@@ -1,4 +1,4 @@
-package kr.mjc.jacob.jdbc.post.ohmynews
+package kr.mjc.jacob.jdbc.ohmynews
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

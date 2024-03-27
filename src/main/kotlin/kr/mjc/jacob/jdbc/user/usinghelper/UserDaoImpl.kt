@@ -5,21 +5,21 @@ import kr.mjc.jacob.jdbc.JdbcHelper
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.user.User
 import kr.mjc.jacob.jdbc.user.UserDao
-import java.sql.ResultSet
+import kr.mjc.jacob.jdbc.user.mapUser
 
 class UserDaoImpl : UserDao {
 
   companion object {
-    private const val FIND_ALL =
+    private const val LIST =
       "select id, username, password, first_name, date_joined from user order by id desc limit ?,?"
 
-    private const val FIND_BY_ID =
+    private const val GET_BY_ID =
       "select id, username, password, first_name, date_joined from user where id=?"
 
-    private const val FIND_BY_USERNAME =
+    private const val GET_BY_USERNAME =
       "select id, username, password, first_name, date_joined from user where username=?"
 
-    private const val SAVE =
+    private const val CREATE =
       "insert user(username, password, first_name) values(?, ? ,?) returning *"
 
     private const val CHANGE_PASSWORD = "update user set password=? where id=?"
@@ -29,19 +29,11 @@ class UserDaoImpl : UserDao {
 
   private val jdbcHelper = JdbcHelper(DataSourceFactory.dataSource)
 
-  private fun mapUser(rs: ResultSet): User =
-    User(id = rs.getInt("id"), username = rs.getString("username"),
-        password = rs.getString("password"),
-        firstName = rs.getString("first_name"),
-        dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
-
   /**
    * 회원 목록
    */
   override fun list(page: Page): List<User> {
-    return jdbcHelper.list(FIND_ALL, page.offset, page.size) { rs ->
-      mapUser(rs)
-    }
+    return jdbcHelper.list(LIST, ::mapUser, page.offset, page.size)
   }
 
   /**
@@ -49,22 +41,22 @@ class UserDaoImpl : UserDao {
    * @return 회원이 없을 경우 null
    */
   override fun getById(id: Int): User? =
-    jdbcHelper.get(FIND_BY_ID, id) { rs -> mapUser(rs) }
+    jdbcHelper.get(GET_BY_ID, ::mapUser, id)
 
   /**
    * 이메일로 회원 조회
    * @return 회원이 없을 경우 null
    */
   override fun getByUsername(username: String): User? =
-    jdbcHelper.get(FIND_BY_USERNAME, username) { rs -> mapUser(rs) }
+    jdbcHelper.get(GET_BY_USERNAME, ::mapUser, username)
 
   /**
    * 회원 가입
    * @exception SQLException username이 중복일 경우
    */
   override fun create(user: User): User? =
-    jdbcHelper.get(SAVE, user.username, user.password,
-        user.firstName) { rs -> mapUser(rs) }
+    jdbcHelper.get(CREATE, ::mapUser, user.username, user.password,
+        user.firstName)
 
   /**
    * 비밀번호 변경

@@ -1,4 +1,4 @@
-package kr.mjc.jacob.jdbc.post.ohmynews
+package kr.mjc.jacob.jdbc.ohmynews
 
 import com.google.gson.Gson
 import kr.mjc.jacob.jdbc.DataSourceFactory
