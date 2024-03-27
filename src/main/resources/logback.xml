@@ -12,7 +12,8 @@
     <appender-ref ref="STDOUT"/>
   </root>
 
+  <logger name="org.mariadb.jdbc.client.impl.StandardClient" level="info"/>
+  <logger name="org.springframework.data" level="warn"/>
   <logger name="kr.mjc.jacob" level="debug"/>
   <logger name="kr.mjc.rachel" level="debug"/>
-  <logger name="org.mariadb.jdbc.client.impl.StandardClient" level="info"/>
 </configuration>

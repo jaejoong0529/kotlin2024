@@ -3,6 +3,7 @@ package kr.mjc.jacob.spring.springdata.user
 import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.spring.springdata.applicationContext
 import org.slf4j.LoggerFactory
+import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 fun main() {
@@ -19,7 +20,6 @@ fun main() {
   val user: User? = userRepository.findByUsername(username)
   if (user?.matchPassword(oldPassword) == true) {
     userRepository.changePassword(user.id, newPassword.bcryptHashed)
-    userRepository.save(user)
     log.info("비밀번호를 변경했습니다.")
   } else {
     log.debug("Wrong username or password.")
