@@ -25,8 +25,8 @@ interface CustomUserRepository {
 /**
  * 기본 Repository 인터페이스에 없는 메서드를 커스텀 구현
  */
-class CustomUserRepositoryImpl(private val npjo: NamedParameterJdbcOperations) :
-    CustomUserRepository {
+class CustomUserRepositoryImpl(
+    private val template: NamedParameterJdbcOperations) : CustomUserRepository {
 
   companion object {
     private const val CHANGE_PASSWORD =
@@ -34,6 +34,6 @@ class CustomUserRepositoryImpl(private val npjo: NamedParameterJdbcOperations) :
   }
 
   override fun changePassword(id: Int, password: String) {
-    npjo.update(CHANGE_PASSWORD, mapOf("id" to id, "password" to password))
+    template.update(CHANGE_PASSWORD, mapOf("id" to id, "password" to password))
   }
 }
