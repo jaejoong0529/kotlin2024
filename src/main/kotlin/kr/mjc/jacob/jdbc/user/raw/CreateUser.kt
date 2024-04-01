@@ -7,11 +7,10 @@ import java.util.*
 
 fun main() {
   print("Create - username(username) password first_name ? ")
-  val scanner = Scanner(System.`in`)
-  val user =
+  val user = Scanner(System.`in`).use { scanner ->
     User(username = scanner.next(), password = scanner.next().bcryptHashed,
         firstName = scanner.next())
-  scanner.close()
+  }
   val sql = "insert user(username, password, first_name) values(?, ?, ?)"
   try {
     DataSourceFactory.dataSource.connection.use { conn ->
