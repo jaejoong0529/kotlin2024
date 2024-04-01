@@ -5,9 +5,8 @@ import org.mindrot.jbcrypt.BCrypt
 import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
-class User(@Id val id: Int = 0, val username: String, var password: String,
-           val firstName: String,
-           val dateJoined: LocalDateTime = LocalDateTime.now()) {
+class User(@Id val id: Int, val username: String, var password: String,
+           val firstName: String, val dateJoined: LocalDateTime) {
 
   /**
    * @param password 평문 비밀번호
