@@ -7,8 +7,8 @@ import java.util.*
 fun main() {
   print("Get - id ? ")
   val id = Scanner(System.`in`).use { it.nextInt() }
-  val sql =
-    "select id, username, password, first_name, date_joined from user where id=?"
+
+  val sql = "select id, username, first_name, date_joined from user where id=?"
 
   DataSourceFactory.dataSource.connection.use { conn ->
     conn.prepareStatement(sql).use { ps ->
@@ -17,7 +17,6 @@ fun main() {
         if (rs.next()) {
           val user =
             User(id = rs.getInt("id"), username = rs.getString("username"),
-                password = rs.getString("password"),
                 firstName = rs.getString("first_name"),
                 dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
           println(user)

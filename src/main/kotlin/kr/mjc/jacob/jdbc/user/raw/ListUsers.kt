@@ -7,9 +7,7 @@ import java.util.*
 
 fun main() {
   print("List - pageNumber pageSize ? ")
-  val scanner = Scanner(System.`in`)
-  val page = Page(scanner.nextInt(), scanner.nextInt())
-  scanner.close()
+  val page = Scanner(System.`in`).use { Page(it.nextInt(), it.nextInt()) }
 
   val sql =
     "select id, username, first_name, date_joined from user order by id desc limit ?,?"
@@ -30,5 +28,5 @@ fun main() {
       }
     }
   }
-  println(userList)
+  userList.forEach(::println)
 }

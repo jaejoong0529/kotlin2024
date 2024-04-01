@@ -10,16 +10,13 @@ import java.sql.ResultSet
 class UserDaoImpl : UserDao {
 
   companion object {
-    private const val FIND_ALL =
-      "select id, username, password, first_name, date_joined from user order by id desc limit ?,?"
+    private const val LIST = "select * from user order by id desc limit ?,?"
 
-    private const val FIND_BY_ID =
-      "select id, username, password, first_name, date_joined from user where id=?"
+    private const val GET_BY_ID = "select * from user where id=?"
 
-    private const val FIND_BY_USERNAME =
-      "select id, username, password, first_name, date_joined from user where username=?"
+    private const val GET_BY_USERNAME = "select * from user where username=?"
 
-    private const val SAVE =
+    private const val CREATE =
       "insert user(username, password, first_name) values(?, ? ,?) returning *"
 
     private const val CHANGE_PASSWORD = "update user set password=? where id=?"
@@ -39,9 +36,7 @@ class UserDaoImpl : UserDao {
    * 회원 목록
    */
   override fun list(page: Page): List<User> {
-    return jdbcHelper.list(FIND_ALL, page.offset, page.size) { rs ->
-      mapUser(rs)
-    }
+    return jdbcHelper.list(LIST, ::mapUser, page.offset, page.size)
   }
 
   /**
@@ -49,22 +44,22 @@ class UserDaoImpl : UserDao {
    * @return 회원이 없을 경우 null
    */
   override fun getById(id: Int): User? =
-    jdbcHelper.get(FIND_BY_ID, id) { rs -> mapUser(rs) }
+    jdbcHelper.get(GET_BY_ID, ::mapUser, id)
 
   /**
    * 이메일로 회원 조회
    * @return 회원이 없을 경우 null
    */
   override fun getByUsername(username: String): User? =
-    jdbcHelper.get(FIND_BY_USERNAME, username) { rs -> mapUser(rs) }
+    jdbcHelper.get(GET_BY_USERNAME, ::mapUser, username)
 
   /**
    * 회원 가입
    * @exception SQLException username이 중복일 경우
    */
   override fun create(user: User): User? =
-    jdbcHelper.get(SAVE, user.username, user.password,
-        user.firstName) { rs -> mapUser(rs) }
+    jdbcHelper.get(CREATE, ::mapUser, user.username, user.password,
+        user.firstName)
 
   /**
    * 비밀번호 변경

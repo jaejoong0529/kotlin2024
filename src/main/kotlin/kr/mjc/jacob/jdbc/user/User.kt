@@ -4,9 +4,9 @@ import kr.mjc.jacob.formatted
 import org.mindrot.jbcrypt.BCrypt
 import java.time.LocalDateTime
 
-data class User(var id: Int = 0, var username: String = "",
-                var password: String = "", var firstName: String = "",
-                var dateJoined: LocalDateTime = LocalDateTime.now()) {
+class User(var id: Int = 0, var username: String = "",
+           var password: String = "", var firstName: String = "",
+           var dateJoined: LocalDateTime = LocalDateTime.now()) {
 
   /**
    * @param password 평문 비밀번호
@@ -16,8 +16,6 @@ data class User(var id: Int = 0, var username: String = "",
     BCrypt.checkpw(password, this.password)
 
   override fun toString(): String {
-    return "User(id=$id, username='$username', firstName='$firstName', dateJoined=${
-      dateJoined.formatted
-    })"
+    return "User(id=$id, username='$username', firstName='$firstName', dateJoined=${dateJoined.formatted})"
   }
 }

@@ -10,8 +10,11 @@ import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.jdbc.datasource.DataSourceTransactionManager
+import org.springframework.transaction.PlatformTransactionManager
+import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
+@EnableTransactionManagement
 @EnableJdbcRepositories
 @PropertySource("/application.properties")
 open class SpringDataConfig(private val env: Environment) :
@@ -25,7 +28,8 @@ open class SpringDataConfig(private val env: Environment) :
     NamedParameterJdbcTemplate(dataSource())
 
   @Bean
-  open fun transactionManager() = DataSourceTransactionManager(dataSource())
+  open fun transactionManager(): PlatformTransactionManager =
+    DataSourceTransactionManager(dataSource())
 }
 
 val applicationContext =

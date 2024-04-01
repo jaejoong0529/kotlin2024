@@ -19,7 +19,6 @@ fun main() {
   val user: User? = userRepository.findByUsername(username)
   if (user?.matchPassword(oldPassword) == true) {
     userRepository.changePassword(user.id, newPassword.bcryptHashed)
-    userRepository.save(user)
     log.info("비밀번호를 변경했습니다.")
   } else {
     log.debug("Wrong username or password.")

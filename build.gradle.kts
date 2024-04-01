@@ -18,7 +18,6 @@ dependencies {
 
   // kotlin
   implementation("org.jetbrains.kotlin:kotlin-reflect")
-  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
   testImplementation(kotlin("test"))
 
   // lombok
@@ -28,15 +27,9 @@ dependencies {
   // mariadb driver
   implementation("org.mariadb.jdbc:mariadb-java-client:3.+")
 
-  // apache
-  implementation("org.apache.httpcomponents.client5:httpclient5:5.3")
-  implementation("org.apache.httpcomponents.client5:httpclient5-fluent:5.3")
-  implementation("commons-io:commons-io:2.+")
-
   // others
   implementation("ch.qos.logback:logback-classic:+")
   implementation("de.svenkubiak:jBCrypt:+")
-  implementation("com.fasterxml.jackson.core:jackson-databind:+")
   implementation("com.google.code.gson:gson:+")
   implementation("org.json:json:+")
 }
@@ -50,5 +43,5 @@ kotlin {
 }
 
 application {
-  mainClass.set("kr.mjc.jacob.basics.HelloWorldKt")
+  mainClass.set("kr.mjc.jacob.basicsyntax.HelloWorldKt")
 }

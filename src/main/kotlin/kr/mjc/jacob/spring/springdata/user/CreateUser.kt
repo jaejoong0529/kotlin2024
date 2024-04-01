@@ -3,6 +3,7 @@ package kr.mjc.jacob.spring.springdata.user
 import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.spring.springdata.applicationContext
 import org.slf4j.LoggerFactory
+import java.time.LocalDateTime
 import java.util.*
 
 fun main() {
@@ -12,7 +13,7 @@ fun main() {
   print("Create - username(email) password first_name ? ")
   val user = Scanner(System.`in`).use {
     User(username = it.next(), password = it.next().bcryptHashed,
-        firstName = it.next())
+        firstName = it.next(), dateJoined = LocalDateTime.now())
   }
 
   if (userRepository.findByUsername(user.username) == null) {
