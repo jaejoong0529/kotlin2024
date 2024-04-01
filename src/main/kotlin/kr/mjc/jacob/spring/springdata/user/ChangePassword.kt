@@ -3,7 +3,6 @@ package kr.mjc.jacob.spring.springdata.user
 import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.spring.springdata.applicationContext
 import org.slf4j.LoggerFactory
-import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 fun main() {
