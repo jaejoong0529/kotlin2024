@@ -2,6 +2,7 @@ package kr.mjc.jacob.spring.springdata.user
 
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Slice
+import org.springframework.data.jdbc.repository.query.Modifying
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.repository.Repository
 import org.springframework.transaction.annotation.Transactional
@@ -24,6 +25,7 @@ interface UserRepository : Repository<User, Int> {
   @Transactional
   fun save(user: User): User
 
+  @Modifying
   @Transactional
   @Query("update user set password=:password where id=:id")
   fun changePassword(id: Int, password: String)
