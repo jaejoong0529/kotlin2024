@@ -2,5 +2,6 @@
 ## Kotlin Basics
 ## JDBC (Java Database Connectivity)
 ## Spring Framework
-## Spring Data Jdbc
+## Spring JDBC
+## Spring Data JDBC
  

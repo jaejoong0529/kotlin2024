@@ -5,7 +5,7 @@ import org.mindrot.jbcrypt.BCrypt
 import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
-class User(@Id val id: Int, val username: String, var password: String,
+class User(@Id val id: Int = 0, val username: String, val password: String,
            val firstName: String, val dateJoined: LocalDateTime) {
 
   /**

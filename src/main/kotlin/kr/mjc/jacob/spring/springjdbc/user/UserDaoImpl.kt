@@ -14,7 +14,7 @@ class UserDaoImpl(private val template: NamedParameterJdbcTemplate) : UserDao {
 
   companion object {
     private const val LIST =
-      "select id, username, password, first_name, date_joined from user order by id desc limit :offset, :size"
+      "select id, username, first_name, date_joined from user order by id desc limit :offset, :size"
 
     private const val GET_BY_ID =
       "select id, username, password, first_name, date_joined from user where id=:id"
@@ -32,7 +32,7 @@ class UserDaoImpl(private val template: NamedParameterJdbcTemplate) : UserDao {
   }
 
   /**
-   * resultSet과 bean을 컬럼명과 property가 같은 것끼리 자동 매핑한다.
+   * resultSet의 컬럼을 bean의 property에 자동 매핑
    */
   private val userRowMapper = BeanPropertyRowMapper(User::class.java)
 

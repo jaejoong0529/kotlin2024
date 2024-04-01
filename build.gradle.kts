@@ -43,5 +43,5 @@ kotlin {
 }
 
 application {
-  mainClass.set("kr.mjc.jacob.basics.HelloWorldKt")
+  mainClass.set("kr.mjc.jacob.basicsyntax.HelloWorldKt")
 }

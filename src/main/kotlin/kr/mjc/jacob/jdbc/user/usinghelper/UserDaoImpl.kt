@@ -5,19 +5,16 @@ import kr.mjc.jacob.jdbc.JdbcHelper
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.user.User
 import kr.mjc.jacob.jdbc.user.UserDao
-import kr.mjc.jacob.jdbc.user.mapUser
+import java.sql.ResultSet
 
 class UserDaoImpl : UserDao {
 
   companion object {
-    private const val LIST =
-      "select id, username, password, first_name, date_joined from user order by id desc limit ?,?"
+    private const val LIST = "select * from user order by id desc limit ?,?"
 
-    private const val GET_BY_ID =
-      "select id, username, password, first_name, date_joined from user where id=?"
+    private const val GET_BY_ID = "select * from user where id=?"
 
-    private const val GET_BY_USERNAME =
-      "select id, username, password, first_name, date_joined from user where username=?"
+    private const val GET_BY_USERNAME = "select * from user where username=?"
 
     private const val CREATE =
       "insert user(username, password, first_name) values(?, ? ,?) returning *"
@@ -28,6 +25,12 @@ class UserDaoImpl : UserDao {
   }
 
   private val jdbcHelper = JdbcHelper(DataSourceFactory.dataSource)
+
+  private fun mapUser(rs: ResultSet): User =
+    User(id = rs.getInt("id"), username = rs.getString("username"),
+        password = rs.getString("password"),
+        firstName = rs.getString("first_name"),
+        dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
 
   /**
    * 회원 목록

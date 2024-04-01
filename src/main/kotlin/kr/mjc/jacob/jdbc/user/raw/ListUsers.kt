@@ -3,7 +3,6 @@ package kr.mjc.jacob.jdbc.user.raw
 import kr.mjc.jacob.jdbc.DataSourceFactory
 import kr.mjc.jacob.jdbc.Page
 import kr.mjc.jacob.jdbc.user.User
-import kr.mjc.jacob.jdbc.user.mapUser
 import java.util.*
 
 fun main() {
@@ -20,7 +19,10 @@ fun main() {
 
       ps.executeQuery().use { rs ->
         while (rs.next()) {
-          val user = mapUser(rs)
+          val user =
+            User(id = rs.getInt("id"), username = rs.getString("username"),
+                firstName = rs.getString("first_name"),
+                dateJoined = rs.getTimestamp("date_joined").toLocalDateTime())
           userList.add(user)
         }
       }

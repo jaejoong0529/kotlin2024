@@ -12,7 +12,7 @@ fun main() {
 
   print("Create - username(email) password first_name ? ")
   val user = Scanner(System.`in`).use {
-    User(id = 0, username = it.next(), password = it.next().bcryptHashed,
+    User(username = it.next(), password = it.next().bcryptHashed,
         firstName = it.next(), dateJoined = LocalDateTime.now())
   }
 
