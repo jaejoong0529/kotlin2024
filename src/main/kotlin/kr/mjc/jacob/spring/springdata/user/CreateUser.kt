@@ -16,10 +16,10 @@ fun main() {
         firstName = it.next(), dateJoined = LocalDateTime.now())
   }
 
-  if (userRepository.findByUsername(user.username) == null) {
+  if (userRepository.existsByUsername(user.username)) {
+    log.debug("username이 존재합니다.")
+  } else {
     val userCreated = userRepository.save(user)
     log.info(userCreated.toString())
-  } else {
-    log.debug("username이 존재합니다.")
   }
 }
