@@ -19,7 +19,7 @@ fun main() {
   if (userRepository.existsByUsername(user.username)) {
     log.debug("username이 존재합니다.")
   } else {
-    val userCreated = userRepository.save(user)
-    log.info(userCreated.toString())
+    userRepository.save(user)
+    log.info(user.toString())
   }
 }
