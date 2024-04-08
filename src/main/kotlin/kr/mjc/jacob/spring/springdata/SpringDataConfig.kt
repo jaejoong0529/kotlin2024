@@ -14,8 +14,8 @@ import org.springframework.transaction.PlatformTransactionManager
 import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
-@EnableTransactionManagement
 @EnableJdbcRepositories
+@EnableTransactionManagement
 @PropertySource("/application.properties")
 open class SpringDataConfig(private val env: Environment) :
     AbstractJdbcConfiguration() {

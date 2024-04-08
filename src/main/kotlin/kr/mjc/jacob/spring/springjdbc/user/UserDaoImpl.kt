@@ -7,9 +7,9 @@ import kr.mjc.jacob.toMap
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.jdbc.core.BeanPropertyRowMapper
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
-import org.springframework.stereotype.Repository
+import org.springframework.stereotype.Component
 
-@Repository
+@Component
 class UserDaoImpl(private val template: NamedParameterJdbcTemplate) : UserDao {
 
   companion object {

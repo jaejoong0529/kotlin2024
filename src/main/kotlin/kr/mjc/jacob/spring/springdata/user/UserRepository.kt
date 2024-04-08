@@ -19,6 +19,8 @@ interface UserRepository : Repository<User, Int> {
 
   fun findAll(pageable: Pageable): Slice<User>
 
+  fun existsByUsername(username: String): Boolean
+
   @Transactional
   fun deleteById(id: Int)
 
