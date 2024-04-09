@@ -14,7 +14,7 @@ dependencies {
   // spring
   implementation("org.springframework:spring-context:6.+")
   implementation("org.springframework:spring-jdbc:6.+")
-  implementation("org.springframework.data:spring-data-jdbc:3.+")
+  implementation("org.springframework.data:spring-data-jpa:3.+")
 
   // kotlin
   implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -32,6 +32,7 @@ dependencies {
   implementation("de.svenkubiak:jBCrypt:+")
   implementation("com.google.code.gson:gson:+")
   implementation("org.json:json:+")
+  implementation("org.hibernate:hibernate-core:6.+")
 }
 
 tasks.test {

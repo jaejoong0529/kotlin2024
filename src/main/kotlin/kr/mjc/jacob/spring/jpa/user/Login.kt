@@ -1,6 +1,6 @@
-package kr.mjc.jacob.spring.springdata.user
+package kr.mjc.jacob.spring.jpa.user
 
-import kr.mjc.jacob.spring.springdata.applicationContext
+import kr.mjc.jacob.spring.jpa.applicationContext
 import org.slf4j.LoggerFactory
 import java.util.*
 

@@ -5,7 +5,7 @@ import kr.mjc.jacob.jdbc.post.Post
 import java.util.*
 
 fun main() {
-  print("Create - title, content, userId, firstName ? ")
+  print("Create - title//content//userId//firstName// ? ")
   val post = Scanner(System.`in`).useDelimiter("//").use {
     Post(title = it.next(), content = it.next(), userId = it.nextInt(),
         firstName = it.next())
