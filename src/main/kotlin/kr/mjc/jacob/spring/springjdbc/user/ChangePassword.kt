@@ -4,11 +4,11 @@ import kr.mjc.jacob.bcryptHashed
 import kr.mjc.jacob.jdbc.user.UserDao
 import kr.mjc.jacob.spring.springjdbc.applicationContext
 import org.slf4j.LoggerFactory
-import org.springframework.dao.EmptyResultDataAccessException
 import java.util.*
 
 fun main() {
   val userDao = applicationContext.getBean(UserDao::class.java)
+  val userService = applicationContext.getBean(UserService::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
   print("Change password - username oldPassword newPassword? ")
@@ -18,15 +18,7 @@ fun main() {
   val newPassword = scanner.next()
   scanner.close()
 
-  try {
-    val user = userDao.getByUsername(username)
-    if (user?.matchPassword(oldPassword) == true) {
-      userDao.changePassword(user.id, newPassword.bcryptHashed)
-      log.info("Password changed.")
-    } else {
-      log.debug("Wrong password.")
-    }
-  } catch (e: EmptyResultDataAccessException) {
-    log.error("No user.")
-  }
+  val user = userService.login(username, oldPassword) ?: return
+  userDao.changePassword(user.id, newPassword.bcryptHashed)
+  log.info("Password changed.")
 }

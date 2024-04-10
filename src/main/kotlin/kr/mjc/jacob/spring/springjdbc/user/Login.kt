@@ -1,13 +1,11 @@
 package kr.mjc.jacob.spring.springjdbc.user
 
-import kr.mjc.jacob.jdbc.user.UserDao
 import kr.mjc.jacob.spring.springjdbc.applicationContext
 import org.slf4j.LoggerFactory
-import org.springframework.dao.EmptyResultDataAccessException
 import java.util.*
 
 fun main() {
-  val userDao = applicationContext.getBean(UserDao::class.java)
+  val userSerivce = applicationContext.getBean(UserService::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
   print("Login - username(email) password ? ")
@@ -16,11 +14,6 @@ fun main() {
   val password = scanner.next()
   scanner.close()
 
-  try {
-    val user = userDao.getByUsername(username)
-    if (user?.matchPassword(password) == true) log.info(user.toString())
-    else log.debug("Wrong password.")
-  } catch (e: EmptyResultDataAccessException) {
-    log.error("No user.")
-  }
+  val user = userSerivce.login(username, password) ?: return
+  log.info(user.toString())
 }
