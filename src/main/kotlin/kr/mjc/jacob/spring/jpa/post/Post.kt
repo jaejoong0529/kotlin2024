@@ -14,7 +14,8 @@ class Post {
   lateinit var pubDate: LocalDateTime
   lateinit var lastModified: LocalDateTime
 
-  override fun toString(): String {
-    return "Post(id=$id, title='$title', content='$content', pubDate=${pubDate.formatted}, lastModified=${lastModified.formatted}, user=$user)"
-  }
+  override fun toString(): String =
+    "Post(id=$id, title='$title', content='$content', pubDate=${pubDate.formatted}, lastModified=${lastModified.formatted}, user=$user)"
+
+  val abbr: String get() = "Post(id=$id, title='$title', pubDate=${pubDate.formatted}, user=${user.abbr})"
 }
