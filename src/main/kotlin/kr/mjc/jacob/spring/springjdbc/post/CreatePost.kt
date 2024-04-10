@@ -20,9 +20,9 @@ fun main() {
   }
 
   val user = userService.login(username, password) ?: return
+  val post = Post(title = title, content = content, userId = user.id,
+      firstName = user.firstName)
 
-  val postCreated = postDao.create(
-      Post(title = title, content = content, userId = user.id,
-          firstName = user.firstName))
+  val postCreated = postDao.create(post)
   log.info(postCreated.toString())
 }
