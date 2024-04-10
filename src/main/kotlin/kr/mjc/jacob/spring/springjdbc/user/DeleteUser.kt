@@ -3,6 +3,7 @@ package kr.mjc.jacob.spring.springjdbc.user
 import kr.mjc.jacob.jdbc.user.UserDao
 import kr.mjc.jacob.spring.springjdbc.applicationContext
 import org.slf4j.LoggerFactory
+import org.springframework.dao.DataIntegrityViolationException
 import java.util.*
 
 fun main() {
@@ -16,6 +17,10 @@ fun main() {
   }
 
   val user = userService.login(username, password) ?: return
-  userDao.deleteById(user.id)
-  log.info("삭제했습니다.")
+  try {
+    userDao.deleteById(user.id)
+    log.info("삭제했습니다.")
+  } catch (e: DataIntegrityViolationException) {
+    log.error("post에 올린 글이 있어서 삭제할 수 없습니다.")
+  }
 }
