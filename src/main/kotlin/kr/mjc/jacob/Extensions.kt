@@ -23,7 +23,7 @@ val String.bcryptHashed: String get() = BCrypt.hashpw(this, BCrypt.gensalt())
  * 날짜를 "yyyy-MM-dd HH:mm:ss"로 포맷하는 formatter
  */
 val formatter: DateTimeFormatter =
-  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
 
 /**
  * 날짜를 formatter로 포맷한다.
