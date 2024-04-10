@@ -17,9 +17,9 @@ fun main() {
         Sort.by(Sort.Direction.DESC, "id"))
   }
 
-  val userPage: Page<User> = userRepository.findAll(pageable)
-  userPage.forEach(::println)
+  val page: Page<User> = userRepository.findAll(pageable)
+  page.forEach(::println)
   log.info("isFirst={}, isLast={}, totalElements={}, totalPages={}",
-      userPage.isFirst, userPage.isLast, userPage.totalElements,
-      userPage.totalPages)
+      page.isFirst, page.isLast, page.totalElements,
+      page.totalPages)
 }
