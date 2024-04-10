@@ -7,7 +7,7 @@ interface PostDao {
 
   fun getById(id: Int): Post?
 
-  fun create(post: Post): Int
+  fun create(post: Post): Post
 
   fun update(post: Post): Int
 

@@ -12,7 +12,7 @@ fun main() {
   val userDao = applicationContext.getBean(UserDao::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Create - username(email) password first_name ? ")
+  print("Create user - username(email) password firstName ? ")
   val user = Scanner(System.`in`).use {
     User(username = it.next(), password = it.next().bcryptHashed,
         firstName = it.next())

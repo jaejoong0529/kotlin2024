@@ -8,10 +8,8 @@ import java.util.*
 fun main() {
   val userDao = applicationContext.getBean(UserDao::class.java)
 
-  print("List - pageNumber pageSize ? ")
-  val scanner = Scanner(System.`in`)
-  val page = Page(scanner.nextInt(), scanner.nextInt())
-  scanner.close()
+  print("List users - pageNumber(0~) pageSize ? ")
+  val page = Scanner(System.`in`).use { Page(it.nextInt(), it.nextInt()) }
 
   val userList = userDao.list(page)
   userList.forEach(::println)

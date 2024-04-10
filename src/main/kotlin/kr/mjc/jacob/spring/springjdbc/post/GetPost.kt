@@ -1,22 +1,22 @@
-package kr.mjc.jacob.spring.springjdbc.user
+package kr.mjc.jacob.spring.springjdbc.post
 
-import kr.mjc.jacob.jdbc.user.UserDao
+import kr.mjc.jacob.jdbc.post.PostDao
 import kr.mjc.jacob.spring.springjdbc.applicationContext
 import org.slf4j.LoggerFactory
 import org.springframework.dao.EmptyResultDataAccessException
 import java.util.*
 
 fun main() {
-  val userDao = applicationContext.getBean(UserDao::class.java)
+  val postDao = applicationContext.getBean(PostDao::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Get user - id ? ")
+  print("Get post - id ? ")
   val id = Scanner(System.`in`).use { it.nextInt() }
 
   try {
-    val user = userDao.getById(id)
-    log.info(user.toString())
+    val post = postDao.getById(id)
+    log.info(post.toString())
   } catch (e: EmptyResultDataAccessException) {
-    log.error("No user.")
+    log.error("No post.")
   }
 }
