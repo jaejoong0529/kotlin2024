@@ -28,6 +28,7 @@ CREATE TABLE if not exists User (
   password   char(60)    NOT NULL,
   firstName  varchar(20) NOT NULL,
   dateJoined datetime    NOT NULL DEFAULT current_timestamp,
+  lastLogin  datetime    NOT NULL DEFAULT dateJoined,
   PRIMARY KEY (id),
   UNIQUE KEY username (username)
 );

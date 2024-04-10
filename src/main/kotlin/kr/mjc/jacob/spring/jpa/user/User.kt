@@ -1,8 +1,11 @@
 package kr.mjc.jacob.spring.jpa.user
 
-import jakarta.persistence.*
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 import kr.mjc.jacob.formatted
-import kr.mjc.jacob.spring.jpa.post.Post
+import lombok.ToString
 import org.mindrot.jbcrypt.BCrypt
 import java.time.LocalDateTime
 
@@ -13,7 +16,7 @@ class User {
   lateinit var password: String
   lateinit var firstName: String
   lateinit var dateJoined: LocalDateTime
-  @OneToMany(mappedBy = "user") lateinit var posts: Set<Post>
+  lateinit var lastLogin: LocalDateTime
 
   /**
    * @param password 평문 비밀번호
@@ -23,6 +26,6 @@ class User {
     BCrypt.checkpw(password, this.password)
 
   override fun toString(): String {
-    return "User(id=$id, username='$username', firstName='$firstName', dateJoined=${dateJoined.formatted})"
+    return "User(id=$id, username='$username', firstName='$firstName', dateJoined=${dateJoined.formatted}, lastLogin=${lastLogin.formatted})"
   }
 }

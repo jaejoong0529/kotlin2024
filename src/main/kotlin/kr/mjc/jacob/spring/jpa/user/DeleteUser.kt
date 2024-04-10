@@ -2,27 +2,24 @@ package kr.mjc.jacob.spring.jpa.user
 
 import kr.mjc.jacob.spring.jpa.applicationContext
 import org.slf4j.LoggerFactory
+import org.springframework.dao.DataIntegrityViolationException
 import java.util.*
 
 fun main() {
   val userRepository = applicationContext.getBean(UserRepository::class.java)
+  val userService = applicationContext.getBean(UserService::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Delete User - username password ? ")
-  val scanner = Scanner(System.`in`)
-  val username = scanner.next()
-  val password = scanner.next()
-  scanner.close()
+  print("Delete user - username(email) password ? ")
+  val (username, password) = Scanner(System.`in`).use {
+    arrayOf(it.next(), it.next())
+  }
 
-  val user = userRepository.findByUsername(username)
-  if (user?.matchPassword(password) == true) {
-    try {
-      userRepository.deleteById(user.id)
-      log.info("삭제했습니다.")
-    } catch (e: Exception) {
-      log.error(e.message)
-    }
-  } else {
-    log.debug("Wrong username or password.")
+  val user = userService.login(username, password) ?: return
+  try {
+    userRepository.deleteById(user.id)
+    log.info("삭제했습니다.")
+  } catch (e: DataIntegrityViolationException) {
+    log.error("post에 올린 글이 있어서 삭제할 수 없습니다.")
   }
 }

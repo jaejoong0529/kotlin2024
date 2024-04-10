@@ -5,16 +5,14 @@ import org.slf4j.LoggerFactory
 import java.util.*
 
 fun main() {
-  val userRepository = applicationContext.getBean(UserRepository::class.java)
+  val userService = applicationContext.getBean(UserService::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
   print("Login - username(email) password ? ")
-  val scanner = Scanner(System.`in`)
-  val username = scanner.next()
-  val password = scanner.next()
-  scanner.close()
+  val (username, password) = Scanner(System.`in`).use {
+    arrayOf(it.next(), it.next())
+  }
 
-  val user = userRepository.findByUsername(username)
-  if (user?.matchPassword(password) == true) log.info(user.toString())
-  else log.debug("Wrong username or password.")
+  val user = userService.login(username, password) ?: return
+  log.info(user.toString())
 }

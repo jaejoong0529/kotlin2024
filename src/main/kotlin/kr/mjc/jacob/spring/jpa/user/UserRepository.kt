@@ -1,10 +1,10 @@
 package kr.mjc.jacob.spring.jpa.user
 
-import org.springframework.data.jpa.repository.EntityGraph
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.transaction.annotation.Transactional
+import java.time.LocalDateTime
 
 /**
  * Repository 인터페이스를 확장한 인터페이스의 구현체는
@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional
  */
 interface UserRepository : JpaRepository<User, Long> {
 
-  @EntityGraph(attributePaths = ["posts"],
-      type = EntityGraph.EntityGraphType.FETCH)
-  @Query("select u from User u where u.id = ?1")
-  fun findByIdWithPosts(id: Long): User?
-
   fun findByUsername(username: String): User?
+
+  @Modifying
+  @Transactional
+  @Query("update User set lastLogin=:lastLogin where id=:id")
+  fun updateLastLogin(id: Long, lastLogin: LocalDateTime)
 
   @Modifying
   @Transactional
