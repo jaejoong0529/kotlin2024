@@ -11,6 +11,6 @@
   <logger name="kr.mjc.jacob" level="debug" additivity="false">
     <appender-ref ref="STDOUT"/>
   </logger>
-  <root level="off"/>
+  <root level="error"/>
 
 </configuration>
