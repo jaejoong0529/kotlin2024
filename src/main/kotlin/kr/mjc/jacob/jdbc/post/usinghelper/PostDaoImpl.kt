@@ -13,7 +13,7 @@ class PostDaoImpl : PostDao {
     TODO("Not yet implemented")
   }
 
-  override fun create(post: Post): Int {
+  override fun create(post: Post): Post {
     TODO("Not yet implemented")
   }
 
