@@ -12,11 +12,9 @@ fun main() {
   val log = LoggerFactory.getLogger({}.javaClass)
 
   print("Change password - username oldPassword newPassword? ")
-  val scanner = Scanner(System.`in`)
-  val username = scanner.next()
-  val oldPassword = scanner.next()
-  val newPassword = scanner.next()
-  scanner.close()
+  val (username, oldPassword, newPassword) = Scanner(System.`in`).use {
+    arrayOf(it.next(), it.next(), it.next())
+  }
 
   val user = userService.login(username, oldPassword) ?: return
   userDao.changePassword(user.id, newPassword.bcryptHashed)

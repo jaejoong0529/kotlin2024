@@ -10,11 +10,10 @@ fun main() {
   val userService = applicationContext.getBean(UserService::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Delete - username(email) password ? ")
-  val scanner = Scanner(System.`in`)
-  val username = scanner.next()
-  val password = scanner.next()
-  scanner.close()
+  print("Delete user - username(email) password ? ")
+  val (username, password) = Scanner(System.`in`).use {
+    arrayOf(it.next(), it.next())
+  }
 
   val user = userService.login(username, password) ?: return
   userDao.deleteById(user.id)

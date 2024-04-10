@@ -10,7 +10,7 @@ fun main() {
   val userDao = applicationContext.getBean(UserDao::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Get - id ? ")
+  print("Get user - id ? ")
   val id = Scanner(System.`in`).use { it.nextInt() }
 
   try {
