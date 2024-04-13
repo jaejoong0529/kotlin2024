@@ -11,7 +11,6 @@ class Post {
   lateinit var title: String
   lateinit var content: String
   @ManyToOne @JoinColumn(name = "user_id") lateinit var user: User
-  var firstName: String = ""  // 사용 안함. user.firstName으로 사용함
   lateinit var pubDate: LocalDateTime
   lateinit var lastModified: LocalDateTime
 
