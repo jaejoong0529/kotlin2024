@@ -1,9 +1,6 @@
 package kr.mjc.jacob.spring.jpa.post
 
-import jakarta.persistence.NoResultException
 import kr.mjc.jacob.spring.jpa.applicationContext
-import kr.mjc.jacob.spring.jpa.user.User
-import kr.mjc.jacob.spring.jpa.user.UserRepository
 import kr.mjc.jacob.spring.jpa.user.UserService
 import org.slf4j.LoggerFactory
 import java.time.LocalDateTime

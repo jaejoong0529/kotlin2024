@@ -3,7 +3,6 @@ package kr.mjc.jacob.spring.jpa.post
 import kr.mjc.jacob.spring.jpa.applicationContext
 import org.slf4j.LoggerFactory
 import java.util.*
-import kotlin.jvm.optionals.getOrNull
 
 fun main() {
   val postRepository = applicationContext.getBean(PostRepository::class.java)

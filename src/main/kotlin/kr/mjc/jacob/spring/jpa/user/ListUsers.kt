@@ -20,6 +20,5 @@ fun main() {
   val page: Page<User> = userRepository.findAll(pageable)
   page.forEach(::println)
   log.info("isFirst={}, isLast={}, totalElements={}, totalPages={}",
-      page.isFirst, page.isLast, page.totalElements,
-      page.totalPages)
+      page.isFirst, page.isLast, page.totalElements, page.totalPages)
 }
