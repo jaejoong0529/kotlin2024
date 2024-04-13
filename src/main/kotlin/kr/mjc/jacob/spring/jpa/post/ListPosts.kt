@@ -18,7 +18,10 @@ fun main() {
   }
 
   val page: Page<Post> = postRepository.findAll(pageable)
-  page.forEach { post -> println(post.abbr) }
+  page.forEach { post ->
+    println(
+        "id=${post.id}, title=${post.title}, user(id=${post.user.id}, username=${post.user.username})")
+  }
   log.info("isFirst={}, isLast={}, totalElements={}, totalPages={}",
       page.isFirst, page.isLast, page.totalElements, page.totalPages)
 }

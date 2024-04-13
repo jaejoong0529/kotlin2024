@@ -26,6 +26,4 @@ class User {
 
   override fun toString(): String =
     "User(id=$id, username='$username', firstName='$firstName', dateJoined=${dateJoined.formatted}, lastLogin=${lastLogin.formatted})"
-
-  val abbr: String get() = "User(id=$id, firstName='$firstName')"
 }
