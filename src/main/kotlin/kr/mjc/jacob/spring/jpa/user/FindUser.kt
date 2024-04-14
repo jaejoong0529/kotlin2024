@@ -8,11 +8,9 @@ fun main() {
   val userRepository = applicationContext.getBean(UserRepository::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Find User - id ? ")
+  print("Find user - id ? ")
   val id: Long = Scanner(System.`in`).use { it.nextLong() }
+
   val user = userRepository.findById(id)
   log.info(user.toString())
-
-  val userWithPosts = userRepository.findByIdWithPosts(id)
-  log.info(userWithPosts?.posts.toString())
 }

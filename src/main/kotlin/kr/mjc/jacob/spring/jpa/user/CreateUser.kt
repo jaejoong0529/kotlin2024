@@ -10,13 +10,14 @@ fun main() {
   val userRepository = applicationContext.getBean(UserRepository::class.java)
   val log = LoggerFactory.getLogger({}.javaClass)
 
-  print("Create User - username(email) password first_name ? ")
+  print("Create user - username(email) password firstName ? ")
   val user = Scanner(System.`in`).use {
     User().apply {
       username = it.next()
       password = it.next().bcryptHashed
       firstName = it.next()
       dateJoined = LocalDateTime.now()
+      lastLogin = dateJoined
     }
   }
 

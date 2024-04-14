@@ -16,6 +16,7 @@ fun main() {
   scanner.close()
 
   // 수정할 컬럼만 업데이트
-  postRepository.update(id = id, title = title, content = content)
-  log.info("Update complete.")
+  val count = postRepository.update(id = id, title = title, content = content)
+  if (count >= 1) log.info("Update complete.")
+  else log.error("No post.")
 }
