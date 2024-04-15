@@ -2,15 +2,15 @@
 <configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%date{HH:mm:ss} [%thread] %highlight(%level)
-        %magenta(%logger{36}) %line - %msg%n
+      <pattern>%date{HH:mm:ss} [%thread] %highlight(%level) %magenta(%logger{36}) %line
+        %msg%n
       </pattern>
     </encoder>
   </appender>
 
-  <logger name="kr.mjc.jacob" level="debug" additivity="false">
+  <root level="info">
     <appender-ref ref="STDOUT"/>
-  </logger>
-  <root level="error"/>
+  </root>
 
+  <logger name="kr.mjc.jacob" level="debug"/>
 </configuration>
