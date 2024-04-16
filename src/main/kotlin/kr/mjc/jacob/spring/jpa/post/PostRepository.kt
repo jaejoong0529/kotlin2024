@@ -9,6 +9,6 @@ interface PostRepository : JpaRepository<Post, Long> {
 
   @Modifying
   @Transactional
-  @Query("update Post set title=:title, content=:content where id=:id")
+  @Query("update post set title=:title, content=:content where id=:id", nativeQuery=true)
   fun update(id: Long, title: String, content: String): Int
 }
