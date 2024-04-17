@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Post List</h2>
+<p><span th:text="${post.id}">99</span>. <span th:text="${post.title}">게시글 제목입니다.</span>
+<p>
+<p>등록: <span th:text="${post.pubDate}">2024-01-01 12:24</span> | 수정:
+  <span th:text="${post.lastModified}">2024-01-10 03:21</span> | 등록자:
+  <span th:text="${post.user.firstName}">홍길동</span></p>
+<p th:text="${post.content}">게시글 내용입니다.</p>
+</body>
+</html>
