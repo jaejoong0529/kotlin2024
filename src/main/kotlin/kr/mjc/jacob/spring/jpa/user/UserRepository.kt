@@ -16,11 +16,11 @@ interface UserRepository : JpaRepository<User, Long> {
 
   @Modifying
   @Transactional
-  @Query("update User set lastLogin=:lastLogin where id=:id")
+  @Query("update user set last_login=:lastLogin where id=:id", nativeQuery=true)
   fun updateLastLogin(id: Long, lastLogin: LocalDateTime)
 
   @Modifying
   @Transactional
-  @Query("update User set password=:password where id=:id")
+  @Query("update user set password=:password where id=:id", nativeQuery=true)
   fun changePassword(id: Long, password: String)
 }

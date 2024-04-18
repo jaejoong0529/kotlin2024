@@ -13,7 +13,7 @@ open class SpringJdbcConfig(private val env: Environment) {
   open fun dataSource() = MariaDbDataSource(env.getProperty("db.url"))
 
   @Bean
-  open fun nameParameterJdbcTemplate() =
+  open fun namedParameterJdbcTemplate() =
     NamedParameterJdbcTemplate(dataSource())
 }
 
