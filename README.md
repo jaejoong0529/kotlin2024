@@ -1,4 +1,4 @@
-# kotlin2024 (v2024.4.17)
+# kotlin2024 (v2024.4.23)
 
 ## Kotlin Basics
 
@@ -9,3 +9,8 @@
 ## Spring JDBC
 
 ## Spring Data JPA
+
+## 변경이력
+
+- v2024.4.23: 중간고사 추가
+- v2024.4.17: entityManagerFactory에서 physical_naming_strategy 변경
