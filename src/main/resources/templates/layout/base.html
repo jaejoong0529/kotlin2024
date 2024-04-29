@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+  This is header.
+</header>
+<!-- 다른 템플릿에서 이 템플릿을 상속해서 main을 넣는다. -->
+<main th:insert="${main}">
+  This is base main.
+</main>
+<footer>
+  This is footer.
+</footer>
+</html>

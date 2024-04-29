@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- #header 조각을 삽입 -->
+<div th:insert="~{layout/fragments::#header}"></div>
+<main>
+  This is main.
+</main>
+<!-- #footer 조각으로 대체 -->
+<div th:replace="~{layout/fragments::#footer}"></div>
+</body>
+</html>

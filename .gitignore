@@ -3,3 +3,4 @@
 build
 application.properties
 src/test
+responses/

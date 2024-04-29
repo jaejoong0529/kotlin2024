@@ -11,28 +11,27 @@ repositories {
 }
 
 dependencies {
-  // spring
+  // kotlin, spring, database
   implementation("org.springframework:spring-context:6.+")
   implementation("org.springframework:spring-jdbc:6.+")
   implementation("org.springframework.data:spring-data-jpa:3.+")
-
-  // kotlin
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   testImplementation(kotlin("test"))
+  implementation("org.mariadb.jdbc:mariadb-java-client:3.+")
+  implementation("org.hibernate:hibernate-core:6.+")
 
   // lombok
   compileOnly("org.projectlombok:lombok:+")
   annotationProcessor("org.projectlombok:lombok:+")
-
-  // mariadb driver
-  implementation("org.mariadb.jdbc:mariadb-java-client:3.+")
 
   // others
   implementation("ch.qos.logback:logback-classic:+")
   implementation("de.svenkubiak:jBCrypt:+")
   implementation("com.google.code.gson:gson:+")
   implementation("org.json:json:+")
-  implementation("org.hibernate:hibernate-core:6.+")
+
+  // thymeleaf
+  implementation("org.thymeleaf:thymeleaf:3.+")
 }
 
 tasks.test {

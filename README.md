@@ -1,12 +1,14 @@
-# kotlin2024 (v2024.4.13)
-- 변경사항 : entityManagerFactory에서 physical_naming_strategy 변경
+# kotlin2024 (v2024.4.29)
 
-## Kotlin Basics
+- Kotlin Basics
+- JDBC (Java Database Connectivity)
+- Spring Framework
+- Spring JDBC
+- Spring Data JPA
+- Thymeleaf Template Engine
 
-## JDBC (Java Database Connectivity)
+## 변경이력
 
-## Spring Framework
-
-## Spring JDBC
-
-## Spring Data JPA
+- v2024.4.29: thymeleaf 예문 추가
+- v2024.4.23: 중간고사 추가
+- v2024.4.17: entityManagerFactory에서 physical_naming_strategy 변경
