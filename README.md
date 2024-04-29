@@ -1,16 +1,11 @@
 # kotlin2024 (v2024.4.29)
 
-## Kotlin Basics
-
-## JDBC (Java Database Connectivity)
-
-## Spring Framework
-
-## Spring JDBC
-
-## Spring Data JPA
-
-## Thymeleaf Template Engine
+- Kotlin Basics
+- JDBC (Java Database Connectivity)
+- Spring Framework
+- Spring JDBC
+- Spring Data JPA
+- Thymeleaf Template Engine
 
 ## 변경이력
 
